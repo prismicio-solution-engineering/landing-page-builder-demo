@@ -1,0 +1,10 @@
+{
+  "repositoryName": "boilerplatenext",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": [
+    "./src/sections/slices",
+    "./src/sections/boiler",
+    "./src/sections/heroes"
+  ],
+  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
+}

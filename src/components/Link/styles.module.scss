@@ -1,0 +1,42 @@
+@import '@/styles/common/globals.scss';
+
+/* REMOVE AND CREATE YOUR STYLE */
+$style1color: black;
+$style1colorHover: white;
+
+.lnk {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  .lnkicn {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    transition: transform 250ms $bezier_inout1;
+    path {
+      fill: $style1color;
+    }
+  }
+  @include styleHover {
+    .lnkicn {
+      transform: translateX(5px);
+    }
+  }
+  &.style_1 {
+    .lnktxt {
+      @include styleA('medium');
+    }
+  }
+  &.style_2 {
+    .lnktxt {
+      @include styleA('medium', $color: $style1color);
+      transition: color 250ms $bezier_inout1;
+    }
+    @include styleHover {
+      .lnktxt {
+        color: $style1color;
+      }
+    }
+  }
+}
