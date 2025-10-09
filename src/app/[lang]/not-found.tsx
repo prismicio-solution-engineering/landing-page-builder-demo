@@ -9,7 +9,6 @@ import { generateMetadata as fetchMetadata } from "@/utils/generateMetadata";
 
 import { components as componentsHeros } from "@/sections/heroes";
 import { components as componentsSlices } from "@/sections/slices";
-import { components as componentsBoiler } from "@/sections/boiler";
 
 import { _404Document } from "@/prismicio-types";
 
@@ -38,8 +37,7 @@ export default async function NotFound() {
         slices={data.slices}
         components={{
           ...componentsHeros,
-          ...componentsSlices,
-          ...componentsBoiler
+          ...componentsSlices
         }}
       />
     </Layout>

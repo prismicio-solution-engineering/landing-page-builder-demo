@@ -40,32 +40,32 @@ const nextConfig = {
           };
         });
     });
-  },
-
-  async redirects() {
-    // Read the JSON file using fs
-    const slicemachineConfigPath = path.join(
-      process.cwd(),
-      "slicemachine.config.json"
-    );
-    const slicemachineConfig = JSON.parse(
-      fs.readFileSync(slicemachineConfigPath, "utf8")
-    );
-
-    const client = prismic.createClient(slicemachineConfig.repositoryName);
-    const allRedirect = await client.getAllByType("redirect", { lang: "*" });
-
-    return allRedirect.flatMap(page => {
-      const { data } = page;
-      return data.redirect.map(r => {
-        return {
-          source: r.source,
-          destination: r.destination,
-          statusCode: 301
-        };
-      });
-    });
   }
+
+  // async redirects() {
+  //   // Read the JSON file using fs
+  //   const slicemachineConfigPath = path.join(
+  //     process.cwd(),
+  //     "slicemachine.config.json"
+  //   );
+  //   const slicemachineConfig = JSON.parse(
+  //     fs.readFileSync(slicemachineConfigPath, "utf8")
+  //   );
+
+  //   const client = prismic.createClient(slicemachineConfig.repositoryName);
+  //   const allRedirect = await client.getAllByType("redirect", { lang: "*" });
+
+  //   return allRedirect.flatMap(page => {
+  //     const { data } = page;
+  //     return data.redirect.map(r => {
+  //       return {
+  //         source: r.source,
+  //         destination: r.destination,
+  //         statusCode: 301
+  //       };
+  //     });
+  //   });
+  // }
 };
 
 export default nextConfig;

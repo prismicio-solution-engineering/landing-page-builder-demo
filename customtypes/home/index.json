@@ -17,11 +17,7 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "hero_home": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },

@@ -16,7 +16,23 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "hero_landing": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "faq": {
+              "type": "SharedSlice"
+            },
+            "carousel": {
+              "type": "SharedSlice"
+            },
+            "cta": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

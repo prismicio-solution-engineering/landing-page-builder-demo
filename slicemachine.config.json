@@ -1,10 +1,6 @@
 {
   "repositoryName": "template-landing",
   "adapter": "@slicemachine/adapter-next",
-  "libraries": [
-    "./src/sections/slices",
-    "./src/sections/boiler",
-    "./src/sections/heroes"
-  ],
+  "libraries": ["./src/sections/slices", "./src/sections/heroes"],
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
 }

@@ -3,5 +3,8 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  carousel: dynamic(() => import("./Carousel")),
+  cta: dynamic(() => import("./Cta")),
   faq: dynamic(() => import("./Faq")),
+  testimonials: dynamic(() => import("./Testimonials")),
 };

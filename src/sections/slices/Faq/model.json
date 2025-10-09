@@ -100,6 +100,64 @@
             "allowTargetBlank": true,
             "multi": "paragraph"
           }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "question": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Question",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading3"
+                }
+              },
+              "answer": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Answer",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,hyperlink"
+                }
+              }
+            }
+          }
+        },
+        "title_foot": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title - foot",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading4"
+          }
+        },
+        "txt_foot": {
+          "type": "Text",
+          "config": {
+            "label": "Text - Foot",
+            "placeholder": ""
+          }
+        },
+        "btn": {
+          "type": "Link",
+          "config": {
+            "label": "Button",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
         }
       },
       "items": {}
@@ -128,6 +186,64 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph"
+          }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "question": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Question",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading3"
+                }
+              },
+              "answer": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Answer",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,hyperlink"
+                }
+              }
+            }
+          }
+        },
+        "title_foot": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title - foot",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading4"
+          }
+        },
+        "txt_foot": {
+          "type": "Text",
+          "config": {
+            "label": "Text - Foot",
+            "placeholder": ""
+          }
+        },
+        "btn": {
+          "type": "Link",
+          "config": {
+            "label": "Button",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
           }
         }
       },

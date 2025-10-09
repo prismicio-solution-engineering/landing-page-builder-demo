@@ -142,8 +142,8 @@
 				"type": "Link",
 				"value": [
 					{
-						"__TYPE__": "LinkContent",
 						"key": "ad59a6a2-710e-4037-bafb-a92f6f4cf747",
+						"__TYPE__": "LinkContent",
 						"value": {
 							"__TYPE__": "ExternalLink",
 							"url": "https://prismic.io",

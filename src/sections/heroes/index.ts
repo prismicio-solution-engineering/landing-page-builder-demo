@@ -3,8 +3,5 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  hero_error: dynamic(() => import("./HeroError")),
-  hero_home: dynamic(() => import("./HeroHome")),
   hero_landing: dynamic(() => import("./HeroLanding")),
-  hero_legals: dynamic(() => import("./HeroLegals")),
 };
