@@ -1,0 +1,118 @@
+{
+  "format": "page",
+  "id": "landing",
+  "label": "Landing",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    },
+    "Header": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "lnk": {
+        "type": "Link",
+        "config": {
+          "label": "Link",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true
+        }
+      },
+      "cta": {
+        "type": "Link",
+        "config": {
+          "label": "CTA",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false,
+          "variants": ["Primary", "Secondary"]
+        }
+      }
+    },
+    "Design": {
+      "primary_color": {
+        "type": "Color",
+        "config": {
+          "label": "Primary color",
+          "placeholder": ""
+        }
+      },
+      "secondary_color": {
+        "type": "Color",
+        "config": {
+          "label": "Secondary color",
+          "placeholder": ""
+        }
+      },
+      "font": {
+        "type": "Select",
+        "config": {
+          "label": "Font",
+          "placeholder": "",
+          "options": ["Inter", "Helvetica"],
+          "default_value": "Inter"
+        }
+      },
+      "button_style": {
+        "type": "Select",
+        "config": {
+          "label": "Button style",
+          "placeholder": "",
+          "options": ["Square", "Medium rounded", "Rounded"],
+          "default_value": "Square"
+        }
+      }
+    }
+  }
+}
