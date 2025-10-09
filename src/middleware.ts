@@ -3,18 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { AllDocumentTypes } from "@/prismicio-types";
 import { Client } from "@prismicio/client";
 
-async function getRedirects(client: Client<AllDocumentTypes>) {
-  const allRedirect = await client.getAllByType("redirect", { lang: "*" });
-  return allRedirect.flatMap(page => {
-    const { data } = page;
-    return data.redirect.map(r => ({
-      source: r.source as string,
-      destination: r.destination as string,
-      statusCode: 301
-    }));
-  });
-}
-
 async function getRewrites(client: Client<AllDocumentTypes>) {
   const repository = await client.getRepository();
   const locales = repository.languages.map(lang => lang.id);
@@ -63,17 +51,6 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const client = createClient();
-
-  // REDIRECTIONS
-  const redirects = await getRedirects(client);
-  const redirect = redirects.find(r => r.source === pathname);
-
-  if (redirect) {
-    return NextResponse.redirect(
-      new URL(redirect.destination, request.url),
-      redirect.statusCode
-    );
-  }
 
   // REWRITES
   const rewrites = await getRewrites(client);
