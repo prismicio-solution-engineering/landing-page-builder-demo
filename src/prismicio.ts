@@ -20,7 +20,7 @@ const routes: prismic.ClientConfig["routes"] = [
     path: "/:lang?"
   },
   {
-    type: "legals",
+    type: "landing",
     path: "/:lang?/:uid"
   }
 ];
