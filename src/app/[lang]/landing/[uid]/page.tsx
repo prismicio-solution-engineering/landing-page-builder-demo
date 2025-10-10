@@ -55,6 +55,7 @@ export default async function Landings({
           ...componentsHeros,
           ...componentsSlices
         }}
+        context={{ pageData: page.data }}
       />
       <></>
     </Layout>

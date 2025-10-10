@@ -1,6 +1,10 @@
+"use client";
 import { FC } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import Container from "@/components/Container";
+import { PrismicNextLink } from "@prismicio/next";
+import { getButtonStyles } from "@/utils/getButtonStyles";
 
 /**
  * Props for `HeroLanding`.
@@ -10,42 +14,30 @@ export type HeroLandingProps = SliceComponentProps<Content.HeroLandingSlice>;
 /**
  * Component for "HeroLanding" Slices.
  */
-const HeroLanding: FC<HeroLandingProps> = ({ slice }) => {
+const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
+  console.log(slice);
+  console.log(context);
+  const pageData = context?.pageData;
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="flex justify-center py-[120px]"
     >
-      Placeholder component for hero_landing (variation: {slice.variation})
-      slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server@latest"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select a model optimized for coding (e.g. Claude 3.7 Sonnet or similar)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 🎙️ Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       * 📚 Documentation: https://prismic.io/docs/ai#code-with-prismics-mcp-server
-       */}
+      <Container className="max-w-[500px] text-center" size="xl">
+        <PrismicRichText field={slice.primary.title} />
+        <PrismicRichText field={slice.primary.txt} />
+        <div className="flex gap-2">
+          {slice.primary.btns.map((btn, index) => (
+            <PrismicNextLink
+              field={btn}
+              key={index}
+              className="p-2 text-white"
+              style={getButtonStyles(btn, pageData)}
+            />
+          ))}
+        </div>
+      </Container>
     </section>
   );
 };
