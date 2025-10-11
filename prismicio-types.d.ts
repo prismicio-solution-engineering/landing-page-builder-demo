@@ -130,6 +130,223 @@ interface _404DocumentData {
 export type _404Document<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<_404DocumentData>, "404", Lang>;
 
+type ArticleDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Article documents
+ */
+interface ArticleDocumentData {
+  /**
+   * Category field in *Article*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  category: ContentRelationshipFieldWithData<
+    [{ id: "category"; fields: ["name"] }]
+  >;
+
+  /**
+   * Author field in *Article*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  author: ContentRelationshipFieldWithData<
+    [{ id: "author"; fields: ["img", "name"] }]
+  >;
+
+  /**
+   * Read time field in *Article*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 5 (min)
+   * - **API ID Path**: article.read_time
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  read_time: prismic.NumberField;
+
+  /**
+   * Date field in *Article*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  date: prismic.DateField;
+
+  /**
+   * Image field in *Article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.img
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  img: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Article*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Article*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.desc
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  desc: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Article*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<ArticleDocumentDataSlicesSlice> /**
+   * Meta Title field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: article.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: article.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Article document from Prismic
+ *
+ * - **API ID**: `article`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ArticleDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ArticleDocumentData>,
+    "article",
+    Lang
+  >;
+
+/**
+ * Content for Author documents
+ */
+interface AuthorDocumentData {
+  /**
+   * Image field in *Author*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.img
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  img: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Author*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
+ * Author document from Prismic
+ *
+ * - **API ID**: `author`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AuthorDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<AuthorDocumentData>, "author", Lang>;
+
+/**
+ * Content for Category documents
+ */
+interface CategoryDocumentData {
+  /**
+   * Name field in *Category*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: category.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
+ * Category document from Prismic
+ *
+ * - **API ID**: `category`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CategoryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CategoryDocumentData>,
+    "category",
+    Lang
+  >;
+
 /**
  * Content for Footer documents
  */
@@ -413,6 +630,9 @@ export type LandingDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | _404Document
+  | ArticleDocument
+  | AuthorDocument
+  | CategoryDocument
   | FooterDocument
   | HeaderDocument
   | HomeDocument
@@ -1743,6 +1963,13 @@ declare module "@prismicio/client" {
       _404Document,
       _404DocumentData,
       _404DocumentDataSlicesSlice,
+      ArticleDocument,
+      ArticleDocumentData,
+      ArticleDocumentDataSlicesSlice,
+      AuthorDocument,
+      AuthorDocumentData,
+      CategoryDocument,
+      CategoryDocumentData,
       FooterDocument,
       FooterDocumentData,
       HeaderDocument,
