@@ -4,16 +4,20 @@ import { CustomService } from "@/services/custom.service";
 
 import FooterComponent from "@/components/Footer";
 import HeaderComponent from "@/components/Header";
-import { FooterDocument, HeaderDocument } from "@/prismicio-types";
+import {
+  FooterDocument,
+  // HeaderDocument,
+  LandingDocument
+} from "@/prismicio-types";
 import { AlternateLanguage } from "@prismicio/client";
 
 import { PropsLayoutHF } from "@/types";
 
 const Header = async (props: PropsLayoutHF) => {
-  const customService = new CustomService(props.lang);
-  const header = (await customService.getHeader()) as HeaderDocument;
+  // const customService = new CustomService(props.lang);
+  // const header = (await customService.getHeader()) as HeaderDocument;
 
-  return <HeaderComponent header={header} {...props} />;
+  return <HeaderComponent {...props} />;
 };
 
 const Footer = async (props: PropsLayoutHF) => {
@@ -31,6 +35,7 @@ export default function Layout({
   lang: string;
   altLang: AlternateLanguage<string, string>[];
   currentPage: string;
+  page: LandingDocument;
 }) {
   return (
     <>

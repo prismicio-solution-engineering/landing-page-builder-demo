@@ -72,10 +72,10 @@
           "thumbnails": []
         }
       },
-      "lnk": {
+      "lnks": {
         "type": "Link",
         "config": {
-          "label": "Link",
+          "label": "Links",
           "placeholder": "",
           "select": null,
           "allowTargetBlank": true,

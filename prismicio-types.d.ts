@@ -318,15 +318,15 @@ interface LandingDocumentData {
   logo: prismic.ImageField<never>;
 
   /**
-   * Link field in *Landing*
+   * Links field in *Landing*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: landing.lnk
+   * - **API ID Path**: landing.lnks
    * - **Tab**: Header
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  lnk: prismic.Repeatable<
+  lnks: prismic.Repeatable<
     prismic.LinkField<string, string, unknown, prismic.FieldState, never>
   >;
 
@@ -1490,61 +1490,6 @@ export type TestimonialsSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Spacer → Default → Primary*
- */
-export interface SpacerSliceDefaultPrimary {
-  /**
-   * Size field in *Spacer → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: spacer.default.primary.choice
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  choice: prismic.SelectField<"xxl" | "xl" | "l" | "m" | "s" | "xs">;
-}
-
-/**
- * Default variation for Spacer Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type SpacerSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<SpacerSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Line variation for Spacer Slice
- *
- * - **API ID**: `line`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type SpacerSliceLine = prismic.SharedSliceVariation<
-  "line",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *Spacer*
- */
-type SpacerSliceVariation = SpacerSliceDefault | SpacerSliceLine;
-
-/**
- * Spacer Shared Slice
- *
- * - **API ID**: `spacer`
- * - **Description**: Spacer
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type SpacerSlice = prismic.SharedSlice<"spacer", SpacerSliceVariation>;
-
-/**
  * Primary content in *HeroLanding → Default → Primary*
  */
 export interface HeroLandingSliceDefaultPrimary {
@@ -1850,11 +1795,6 @@ declare module "@prismicio/client" {
       TestimonialsSliceDefault,
       TestimonialsSliceVariation1,
       TestimonialsSliceVariation2,
-      SpacerSlice,
-      SpacerSliceDefaultPrimary,
-      SpacerSliceVariation,
-      SpacerSliceDefault,
-      SpacerSliceLine,
       HeroLandingSlice,
       HeroLandingSliceDefaultPrimary,
       HeroLandingSliceVariation1Primary,

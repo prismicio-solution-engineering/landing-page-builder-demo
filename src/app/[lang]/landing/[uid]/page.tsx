@@ -48,6 +48,7 @@ export default async function Landings({
       lang={lang}
       altLang={page.alternate_languages}
       currentPage={page.type}
+      page={page as LandingDocument}
     >
       <SliceZone
         slices={data.slices}
