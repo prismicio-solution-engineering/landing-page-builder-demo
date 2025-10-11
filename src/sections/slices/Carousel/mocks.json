@@ -46,7 +46,19 @@
 				"value": [
 					{
 						"__TYPE__": "GroupItemContent",
-						"value": []
+						"value": [
+							[
+								"article",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "f83e094c-4aa9-47fd-afad-e9e23f775828",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							]
+						]
 					}
 				]
 			}
@@ -147,7 +159,6 @@
 							[
 								"logo",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
@@ -166,6 +177,8 @@
 										"background": "transparent"
 									},
 									"alt": "corn",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]

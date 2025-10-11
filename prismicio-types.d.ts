@@ -641,7 +641,38 @@ export type AllDocumentTypes =
 /**
  * Item in *Carousel → Default → Primary → Grp*
  */
-export interface CarouselSliceDefaultPrimaryGrpItem {}
+export interface CarouselSliceDefaultPrimaryGrpItem {
+  /**
+   * Article field in *Carousel → Default → Primary → Grp*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.default.primary.grp[].article
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  article: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "article";
+        fields: [
+          "read_time",
+          "date",
+          "img",
+          "title",
+          "desc",
+          {
+            id: "author";
+            customtypes: [{ id: "author"; fields: ["img", "name"] }];
+          },
+          {
+            id: "category";
+            customtypes: [{ id: "category"; fields: ["name"] }];
+          },
+        ];
+      },
+    ]
+  >;
+}
 
 /**
  * Item in *Carousel → Variation 1 → Primary → Grp*
