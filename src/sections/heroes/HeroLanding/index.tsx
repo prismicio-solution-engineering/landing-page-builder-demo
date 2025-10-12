@@ -4,8 +4,11 @@ import HeroLandingVariant2 from "./variation2";
 
 import type { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { LandingDocumentData } from "@/prismicio-types";
 
-export type HeroLandingProps = SliceComponentProps<Content.HeroLandingSlice>;
+export type HeroLandingProps = SliceComponentProps<Content.HeroLandingSlice> & {
+  context: { pageData: LandingDocumentData };
+};
 
 const HeroLanding = ({
   slice,
