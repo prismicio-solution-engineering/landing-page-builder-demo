@@ -47,6 +47,13 @@
           "placeholder": "5 (min)"
         }
       },
+      "read_time_txt": {
+        "type": "Text",
+        "config": {
+          "label": "Read time - Text",
+          "placeholder": "Min"
+        }
+      },
       "date": {
         "type": "Date",
         "config": {

@@ -174,6 +174,17 @@ interface ArticleDocumentData {
   read_time: prismic.NumberField;
 
   /**
+   * Read time - Text field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Min
+   * - **API ID Path**: article.read_time_txt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  read_time_txt: prismic.KeyTextField;
+
+  /**
    * Date field in *Article*
    *
    * - **Field Type**: Date
@@ -668,6 +679,7 @@ export interface CarouselSliceDefaultPrimaryGrpItem {
             id: "category";
             customtypes: [{ id: "category"; fields: ["name"] }];
           },
+          "read_time_txt",
         ];
       },
     ]
