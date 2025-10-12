@@ -106,7 +106,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
           }}
         >
           {/* Carousel */}
-          {slice.primary.grp.map((item, index) => {
+          {slice.primary.grp?.map((item, index) => {
             const data = (item.article as unknown as ArticleDocument)
               .data as any;
             return (
@@ -151,7 +151,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
         {/* Nav carousel */}
         <div className="flex justify-between items-center">
           <div className="flex gap-2">
-            {[...Array(slice.primary.grp.length)].map((_, i) => (
+            {[...Array(slice.primary.grp.length)]?.map((_, i) => (
               <div
                 className={`rounded-full w-2 h-2 ${
                   i === currentIndex ? "bg-gray-900" : "bg-gray-500"
@@ -164,7 +164,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
             <button
               onClick={handlePrevious}
               disabled={currentIndex === 0}
-              className="group hover:bg-gray-900 disabled:opacity-50 p-1 border border-gray-900 rounded-full rotate-180 transition-all duration-200 ease-in-out cursor-pointer disabled:cursor-not-allowed"
+              className="group hover:bg-gray-900 disabled:opacity-50 p-1 border border-gray-900 rounded-full rotate-180 transition-all duration-200 ease-in-out cursor-pointer"
             >
               <svg
                 fill="#000000"
@@ -179,7 +179,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
             <button
               onClick={handleNext}
               disabled={currentIndex === maxIndex}
-              className="group hover:bg-gray-900 disabled:opacity-50 p-1 border border-gray-900 rounded-full transition-all duration-200 ease-in-out cursor-pointer disabled:cursor-not-allowed"
+              className="group hover:bg-gray-900 disabled:opacity-50 p-1 border border-gray-900 rounded-full transition-all duration-200 ease-in-out cursor-pointer"
             >
               <svg
                 fill="#000000"

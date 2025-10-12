@@ -69,7 +69,7 @@ export async function generateStaticParams() {
     documentType: "landing"
   });
 
-  return pages.map(page => {
+  return pages?.map(page => {
     return { uid: page.uid, lang: page.lang };
   });
 }

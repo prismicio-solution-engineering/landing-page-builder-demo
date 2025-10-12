@@ -62,7 +62,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
           />
         </div>
         <div className="flex flex-col gap-4 sm:max-w-[700px]">
-          {slice.primary.grp.map((item, index) => {
+          {slice.primary.grp?.map((item, index) => {
             const isOpen = selectedIndex === index;
             return (
               <div

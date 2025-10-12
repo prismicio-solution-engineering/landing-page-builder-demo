@@ -43,7 +43,7 @@ const Header = (props: PropsLayoutHF) => {
         <Container className="flex justify-between items-center h-full">
           <PrismicNextImage field={data.logo} className="w-auto h-8" />
           <nav className="flex gap-4">
-            {data.lnks.map((item, index) => (
+            {data?.lnks?.map((item, index) => (
               <PrismicNextLink
                 field={item}
                 key={index}

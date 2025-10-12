@@ -1,24 +1,24 @@
-'use client'
+"use client";
 
-import { PrismicNextLink } from '@prismicio/next'
-import { ReactNode } from 'react'
-import { KeyTextField, LinkField } from '@prismicio/client'
+import { PrismicNextLink } from "@prismicio/next";
+import { ReactNode } from "react";
+import { KeyTextField, LinkField } from "@prismicio/client";
 
-import styles from './styles.module.scss'
+import styles from "./styles.module.scss";
 
-import ArrowCTA from '@/assets/icons/ArrowCTA'
-import Load from '@/assets/icons/Load'
+import ArrowCTA from "@/assets/icons/ArrowCTA";
+import Load from "@/assets/icons/Load";
 
 const Encapsulation = ({
   clssNm,
   nClck,
   lnk,
-  children,
+  children
 }: {
-  clssNm: string
-  nClck: () => void
-  lnk: LinkField | false | undefined
-  children: ReactNode
+  clssNm: string;
+  nClck: () => void;
+  lnk: LinkField | false | undefined;
+  children: ReactNode;
 }) => {
   return (
     <>
@@ -33,49 +33,49 @@ const Encapsulation = ({
         </PrismicNextLink>
       )}
     </>
-  )
-}
+  );
+};
 
 export default function Button({
   text,
   link,
-  size = 'big',
+  size = "big",
   style = 1,
   check = false,
   arrow = true,
   anim = null,
   fullwidth = false,
   functionClick,
-  status = null,
+  status = null
 }: {
-  text: KeyTextField | string
-  link?: LinkField | false | undefined
-  size?: string
-  style?: number
-  check?: boolean
-  arrow?: boolean
-  anim?: number | null
-  fullwidth?: boolean
-  functionClick?: () => void
-  status?: string | null
+  text: KeyTextField | string;
+  link?: LinkField | false | undefined;
+  size?: string;
+  style?: number;
+  check?: boolean;
+  arrow?: boolean;
+  anim?: number | null;
+  fullwidth?: boolean;
+  functionClick?: () => void;
+  status?: string | null;
 }) {
-  if (!text) return null
+  if (!text) return null;
 
-  link = link && link.link_type === 'Any' ? false : link
+  link = link && link.link_type === "Any" ? false : link;
 
   const handleClick = () => {
-    if (functionClick) functionClick()
-  }
+    if (functionClick) functionClick();
+  };
 
-  const arwB = anim === 4 || anim === 5 ? true : false
+  const arwB = anim === 4 || anim === 5 ? true : false;
 
   return (
     <Encapsulation
       clssNm={`${styles.btn} ${styles[`size_${size}`]} ${
         styles[`style_${style}`]
-      } ${fullwidth ? styles.fullwidth : ''} ${
-        anim ? styles[`anim_${anim}`] : ''
-      } ${status ? styles[`style_${status}`] : ''}`}
+      } ${fullwidth ? styles.fullwidth : ""} ${
+        anim ? styles[`anim_${anim}`] : ""
+      } ${status ? styles[`style_${status}`] : ""}`}
       nClck={handleClick}
       lnk={link}
     >
@@ -95,17 +95,15 @@ export default function Button({
       {anim && anim === 1 && (
         <div className={styles.btnanm} aria-hidden="true">
           <div className={`${styles.btntxt} ${styles.btnanm_el}`}>
-            {[...Array(4)].map((_, i) => (
-              <span key={i}>{text}</span>
-            ))}
+            {[...Array(4)]?.map((_, i) => <span key={i}>{text}</span>)}
           </div>
         </div>
       )}
-      {status === 'load' && (
+      {status === "load" && (
         <div className={styles.container_load}>
           <Load />
         </div>
       )}
     </Encapsulation>
-  )
+  );
 }
