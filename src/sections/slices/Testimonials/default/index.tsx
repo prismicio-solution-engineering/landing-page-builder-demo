@@ -4,7 +4,7 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Container from "@/components/Container";
-import { getFontStyles } from "@/utils/getFontStyles";
+import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 import { LandingDocumentData } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
 
@@ -77,7 +77,7 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={`flex justify-center my-[120px] overflow-hidden`}
-      style={getFontStyles(pageData)}
+      style={getFontTextStyles(pageData)}
     >
       <Container
         className="flex flex-col justify-between gap-4 text-left"
@@ -88,7 +88,12 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
             field={slice.primary.title}
             components={{
               heading2: ({ children }) => (
-                <h2 className="font-bold text-4xl leading-tight">{children}</h2>
+                <h2
+                  className="font-bold text-4xl leading-tight"
+                  style={getFontHeadingStyles(pageData)}
+                >
+                  {children}
+                </h2>
               )
             }}
           />

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { PropsLayoutHF } from "@/types";
 import Container from "../Container";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { getFontStyles } from "@/utils/getFontStyles";
+import { getFontTextStyles } from "@/utils/getFontStyles";
 import { getButtonStyles } from "@/utils/getButtonStyles";
 
 const Header = (props: PropsLayoutHF) => {
@@ -38,7 +38,7 @@ const Header = (props: PropsLayoutHF) => {
     <>
       <header
         className={`fixed top-5 w-[calc(100%-40px)] md:w-[calc(100%-80px)] left-5 md:left-10 bg-white z-100 flex items-center shadow-lg rounded-lg h-[75px] -translate-y-[150%] ${showHeader ? "translate-y-0" : "-translate-y-[150%]"} transition-all duration-500 ease-inout2 ${isMounted && showHeader ? "duration-800" : "duration-500"}`}
-        style={getFontStyles(data)}
+        style={getFontTextStyles(data)}
       >
         <Container className="flex justify-between items-center h-full">
           <PrismicNextImage field={data.logo} className="w-auto h-8" />

@@ -5,8 +5,8 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Container from "@/components/Container";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { getButtonStyles } from "@/utils/getButtonStyles";
-import { getFontStyles } from "@/utils/getFontStyles";
-import { LandingDocument, LandingDocumentData } from "@/prismicio-types";
+import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
+import { LandingDocumentData } from "@/prismicio-types";
 
 /**
  * Props for `HeroLanding`.
@@ -28,7 +28,7 @@ const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={`flex justify-center my-[120px]`}
-      style={getFontStyles(pageData)}
+      style={getFontTextStyles(pageData)}
     >
       <Container className="flex justify-between gap-10 text-left" size="xl">
         <div className="flex flex-col flex-1 justify-center gap-5">
@@ -38,7 +38,7 @@ const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
               heading1: ({ children }) => (
                 <h1
                   className="font-bold text-5xl"
-                  style={getFontStyles(pageData)}
+                  style={getFontHeadingStyles(pageData)}
                 >
                   {children}
                 </h1>

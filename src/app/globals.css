@@ -10,6 +10,11 @@
   src: url(../assets/fonts/Inter/Inter-Regular.ttf);
   font-display: swap;
 }
+@font-face {
+  font-family: Proxima-Bold;
+  src: url(../assets/fonts/Proxima-Bold.otf);
+  font-display: swap;
+}
 
 @theme {
   /*----------  PRIMARY  ----------*/
@@ -29,6 +34,7 @@
   /*----------  FONTS ----------*/
   --font-inter: "Inter-Regular", sans-serif;
   --font-inter-bold: "Inter-Bold", sans-serif;
+  --font-proxima-bold: "Proxima-Bold", sans-serif;
   /*----------  BEZIER CURVES  ----------*/
   --ease-in1: cubic-bezier(0.47, 0, 0.745, 0.715);
   --ease-out1: cubic-bezier(0.39, 0.575, 0.565, 1);

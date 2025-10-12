@@ -111,10 +111,19 @@
           "placeholder": ""
         }
       },
-      "font": {
+      "font_heading": {
         "type": "Select",
         "config": {
-          "label": "Font",
+          "label": "Font - Heading",
+          "placeholder": "",
+          "options": ["Proxima Bold", "Arial Bold"],
+          "default_value": "Proxima Bold"
+        }
+      },
+      "font_txt": {
+        "type": "Select",
+        "config": {
+          "label": "Font - Text",
           "placeholder": "",
           "options": ["Inter", "Helvetica"],
           "default_value": "Inter"

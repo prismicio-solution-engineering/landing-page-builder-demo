@@ -4,7 +4,7 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Container from "@/components/Container";
-import { getFontStyles } from "@/utils/getFontStyles";
+import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 import { ArticleDocument, LandingDocumentData } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
 
@@ -62,7 +62,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={`flex justify-center my-[120px] overflow-hidden`}
-      style={getFontStyles(pageData)}
+      style={getFontTextStyles(pageData)}
     >
       <Container
         className="flex flex-col justify-between gap-10 text-left"
@@ -74,7 +74,12 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
               field={slice.primary.ontitle}
               components={{
                 heading2: ({ children }) => (
-                  <h2 className="font-bold text-xl">{children}</h2>
+                  <h2
+                    className="font-bold text-xl"
+                    style={getFontHeadingStyles(pageData)}
+                  >
+                    {children}
+                  </h2>
                 )
               }}
             />
@@ -82,7 +87,12 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
               field={slice.primary.title}
               components={{
                 heading3: ({ children }) => (
-                  <h2 className="font-bold text-4xl">{children}</h2>
+                  <h2
+                    className="font-bold text-4xl"
+                    style={getFontHeadingStyles(pageData)}
+                  >
+                    {children}
+                  </h2>
                 )
               }}
             />
@@ -90,7 +100,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
               field={slice.primary.txt}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="text-lg leading-7">{children}</p>
+                  <p className="leading-7">{children}</p>
                 )
               }}
             />
@@ -110,8 +120,11 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
             const data = (item.article as unknown as ArticleDocument)
               .data as any;
             return (
-              <div key={index} className="flex flex-col gap-5 max-w-[350px]">
-                <div className="sm:w-[350px] sm:h-[200px]">
+              <div
+                key={index}
+                className="flex flex-col gap-5 p-4 border border-gray-900 sm:w-[350px] cursor-pointer"
+              >
+                <div className="w-full sm:w-[300px] sm:h-[200px]">
                   <PrismicNextImage
                     field={data.img}
                     className="w-full h-full object-cover"
@@ -121,7 +134,12 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
                   <span className="font-bold text-md">
                     {data.category.data.name}
                   </span>
-                  <h4 className="font-bold text-2xl">{data.title[0].text}</h4>
+                  <h4
+                    className="font-bold text-2xl"
+                    style={getFontHeadingStyles(pageData)}
+                  >
+                    {data.title[0].text}
+                  </h4>
                   <div className="max-h-[100px] overflow-hidden text-ellipsis line-clamp-3">
                     <PrismicRichText field={data.desc} />
                   </div>
@@ -133,7 +151,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
                       className="rounded-full w-full h-full object-cover"
                     />
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col">
                     <span>{data.author.data.name}</span>
                     <div className="flex gap-2">
                       <span>{formatDate(data.date)}</span>

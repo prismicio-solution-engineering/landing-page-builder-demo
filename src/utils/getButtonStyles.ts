@@ -22,11 +22,11 @@ export const getButtonStyles = (btn: any, pageData: LandingDocumentData) => {
   };
 
   const getFontFamily = () => {
-    switch (pageData?.font) {
-      case "Inter":
-        return "'Inter', sans-serif";
+    switch (pageData?.font_heading) {
+      case "Proxima Bold":
+        return "'Proxima-Bold', sans-serif";
       default:
-        return "inherit";
+        return "Arial, sans-serif";
     }
   };
 

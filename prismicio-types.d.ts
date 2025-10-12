@@ -596,16 +596,28 @@ interface LandingDocumentData {
   secondary_color: prismic.ColorField;
 
   /**
-   * Font field in *Landing*
+   * Font - Heading field in *Landing*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Proxima Bold
+   * - **API ID Path**: landing.font_heading
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  font_heading: prismic.SelectField<"Proxima Bold" | "Arial Bold", "filled">;
+
+  /**
+   * Font - Text field in *Landing*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: Inter
-   * - **API ID Path**: landing.font
+   * - **API ID Path**: landing.font_txt
    * - **Tab**: Design
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  font: prismic.SelectField<"Inter" | "Helvetica", "filled">;
+  font_txt: prismic.SelectField<"Inter" | "Helvetica", "filled">;
 
   /**
    * Button style field in *Landing*
