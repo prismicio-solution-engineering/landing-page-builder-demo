@@ -2,7 +2,7 @@ import { LandingDocumentData } from "@/prismicio-types";
 
 export const getButtonStyles = (btn: any, pageData: LandingDocumentData) => {
   const getBackgroundColor = () => {
-    switch (btn.variant) {
+    switch (btn?.variant) {
       case "Primary":
         return pageData?.primary_color;
       default:
