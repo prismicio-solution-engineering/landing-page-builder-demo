@@ -39,19 +39,19 @@ export default async function Home({
   const { data } = page as HomeDocument;
 
   return (
-    <Layout
-      lang={lang}
-      altLang={page.alternate_languages}
-      currentPage={page.type}
-      page={page as LandingDocument}
-    >
-      <SliceZone
-        slices={data.slices}
-        components={{
-          ...componentsHeros,
-          ...componentsSlices
-        }}
-      />
-    </Layout>
+    // <Layout
+    //   lang={lang}
+    //   altLang={page.alternate_languages}
+    //   currentPage={page.type}
+    //   page={page as LandingDocument}
+    // >
+    <SliceZone
+      slices={data.slices}
+      components={{
+        ...componentsHeros,
+        ...componentsSlices
+      }}
+    />
+    // </Layout>
   );
 }
