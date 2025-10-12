@@ -6,6 +6,7 @@ import Container from "@/components/Container";
 import { getFontStyles } from "@/utils/getFontStyles";
 import { PrismicNextLink } from "@prismicio/next";
 import { getButtonStyles } from "@/utils/getButtonStyles";
+import { LandingDocumentData } from "@/prismicio-types";
 
 /**
  * Props for `Faq`.
@@ -16,7 +17,8 @@ export type FaqProps = SliceComponentProps<Content.FaqSlice>;
  * Component for "Faq" Slices.
  */
 const Faq: FC<FaqProps> = ({ slice, context }) => {
-  const pageData = (context as any).pageData;
+  const { page } = context as { page: LandingDocumentData };
+  const pageData = page;
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {

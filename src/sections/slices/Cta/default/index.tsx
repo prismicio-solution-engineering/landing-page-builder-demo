@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import { getFontStyles } from "@/utils/getFontStyles";
 import { PrismicNextLink } from "@prismicio/next";
 import { getButtonStyles } from "@/utils/getButtonStyles";
+import { LandingDocumentData } from "@/prismicio-types";
 
 /**
  * Props for `Cta`.
@@ -15,7 +16,8 @@ export type CtaProps = SliceComponentProps<Content.CtaSlice>;
  * Component for "Cta" Slices.
  */
 const Cta: FC<CtaProps> = ({ slice, context }) => {
-  const pageData = (context as any).pageData;
+  const { page } = context as { page: LandingDocumentData };
+  const pageData = page;
 
   if (slice.variation !== "default") return null;
   return (

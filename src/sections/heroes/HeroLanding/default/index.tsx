@@ -6,7 +6,7 @@ import Container from "@/components/Container";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { getButtonStyles } from "@/utils/getButtonStyles";
 import { getFontStyles } from "@/utils/getFontStyles";
-import { LandingDocumentData } from "@/prismicio-types";
+import { LandingDocument, LandingDocumentData } from "@/prismicio-types";
 
 /**
  * Props for `HeroLanding`.
@@ -20,7 +20,7 @@ export type HeroLandingProps = SliceComponentProps<
  * Component for "HeroLanding" Slices.
  */
 const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
-  const pageData = context.pageData;
+  const { pageData } = context;
   if (slice.variation !== "default") return null;
   return (
     <section

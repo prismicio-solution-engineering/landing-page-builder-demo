@@ -33,7 +33,7 @@ const Header = (props: PropsLayoutHF) => {
     setIsMounted(true);
     setShowHeader(true);
   }, []);
-  console.log(data);
+
   return (
     <>
       <header
