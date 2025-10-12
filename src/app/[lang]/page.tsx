@@ -10,7 +10,7 @@ import { generateMetadata as fetchMetadata } from "@/utils/generateMetadata";
 import { components as componentsHeros } from "@/sections/heroes";
 import { components as componentsSlices } from "@/sections/slices";
 
-import { HomeDocument } from "@/prismicio-types";
+import { HomeDocument, LandingDocument } from "@/prismicio-types";
 
 export async function generateMetadata({
   params
@@ -43,6 +43,7 @@ export default async function Home({
       lang={lang}
       altLang={page.alternate_languages}
       currentPage={page.type}
+      page={page as LandingDocument}
     >
       <SliceZone
         slices={data.slices}

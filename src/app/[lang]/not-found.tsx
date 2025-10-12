@@ -10,7 +10,7 @@ import { generateMetadata as fetchMetadata } from "@/utils/generateMetadata";
 import { components as componentsHeros } from "@/sections/heroes";
 import { components as componentsSlices } from "@/sections/slices";
 
-import { _404Document } from "@/prismicio-types";
+import { _404Document, LandingDocument } from "@/prismicio-types";
 
 export async function generateMetadata(): Promise<Metadata> {
   const lang = (process.env.NEXT_PUBLIC_DEFAULT_LOCALE as string) ?? "";
@@ -32,6 +32,7 @@ export default async function NotFound() {
       lang={lang}
       altLang={page.alternate_languages}
       currentPage={page.type}
+      page={page as LandingDocument}
     >
       <SliceZone
         slices={data.slices}
