@@ -62,7 +62,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex justify-center py-[120px] overflow-hidden`}
+      className={`flex justify-center my-[120px] overflow-hidden`}
       style={getFontStyles(pageData)}
     >
       <Container
@@ -71,7 +71,14 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
       >
         <div className="flex justify-between items-end w-full">
           <div className="flex flex-col gap-5 sm:max-w-[500px]">
-            <PrismicRichText field={slice.primary.ontitle} />
+            <PrismicRichText
+              field={slice.primary.ontitle}
+              components={{
+                heading2: ({ children }) => (
+                  <h2 className="font-bold text-xl">{children}</h2>
+                )
+              }}
+            />
             <PrismicRichText
               field={slice.primary.title}
               components={{
@@ -84,7 +91,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
               field={slice.primary.txt}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="text-gray-700 text-lg leading-7">{children}</p>
+                  <p className="text-lg leading-7">{children}</p>
                 )
               }}
             />
@@ -99,10 +106,10 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
             transform: `translateX(-${currentIndex * (350 + 16)}px)`
           }}
         >
+          {/* Carousel */}
           {slice.primary.grp.map((item, index) => {
             const data = (item.article as unknown as ArticleDocument)
               .data as any;
-
             return (
               <div key={index} className="flex flex-col gap-5 max-w-[350px]">
                 <div className="sm:w-[350px] sm:h-[200px]">
@@ -112,15 +119,10 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
                   />
                 </div>
                 <div className="flex flex-col gap-3 mt-2">
-                  <span>{data.category.data.name}</span>
-                  <PrismicRichText
-                    field={data.title}
-                    components={{
-                      heading4: ({ children }) => (
-                        <h4 className="font-semibold text-lg">{children}</h4>
-                      )
-                    }}
-                  />
+                  <span className="font-bold text-md">
+                    {data.category.data.name}
+                  </span>
+                  <h4 className="font-bold text-2xl">{data.title[0].text}</h4>
                   <div className="max-h-[100px] overflow-hidden text-ellipsis line-clamp-3">
                     <PrismicRichText field={data.desc} />
                   </div>
@@ -147,7 +149,8 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
             );
           })}
         </div>
-        <div className="flex justify-between">
+        {/* Nav carousel */}
+        <div className="flex justify-between items-center">
           <div className="flex gap-2">
             {[...Array(slice.primary.grp.length)].map((_, i) => (
               <div
