@@ -72,7 +72,7 @@ const Header = (props: PropsLayoutHF) => {
           </nav>
           <PrismicNextLink
             field={data.cta}
-            className="flex items-center gap-2 hover:opacity-80 p-3 w-fit text-white transition-opacity duration-300 ease-inout2"
+            className="flex items-center gap-2 hover:opacity-90 p-3 w-fit text-white transition-opacity duration-300 ease-inout2"
             style={getButtonStyles(data.cta, data) as React.CSSProperties}
           >
             <span>{data.cta.text}</span>

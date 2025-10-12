@@ -57,7 +57,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
           />
           <PrismicNextLink
             field={slice.primary.btn}
-            className="flex hover:opacity-80 p-3 w-fit text-white transition-opacity duration-300 ease-inout2"
+            className="flex hover:opacity-90 p-3 w-fit text-white transition-opacity duration-300 ease-inout2"
             style={
               getButtonStyles(
                 slice.primary.btn,

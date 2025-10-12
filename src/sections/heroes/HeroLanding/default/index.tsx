@@ -51,7 +51,7 @@ const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
               <PrismicNextLink
                 field={btn}
                 key={index}
-                className="hover:opacity-80 p-3 text-white transition-opacity duration-300 ease-inout2"
+                className="hover:opacity-90 p-3 text-white transition-opacity duration-300 ease-inout2"
                 style={getButtonStyles(btn, pageData) as React.CSSProperties}
               />
             ))}

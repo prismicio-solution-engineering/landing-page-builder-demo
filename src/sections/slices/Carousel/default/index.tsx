@@ -125,39 +125,41 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
                 className="flex flex-col gap-5 p-4 border border-gray-900 sm:w-[350px] cursor-pointer"
               >
                 <div className="w-full sm:w-[300px] sm:h-[200px]">
-                  <PrismicNextImage
-                    field={data.img}
-                    className="w-full h-full object-cover"
-                  />
+                  {data?.img && (
+                    <PrismicNextImage
+                      field={data.img}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
                 <div className="flex flex-col gap-3 mt-2">
                   <span className="font-bold text-md">
-                    {data.category.data.name}
+                    {data?.category?.data?.name}
                   </span>
                   <h4
                     className="font-bold text-2xl"
                     style={getFontHeadingStyles(pageData)}
                   >
-                    {data.title[0].text}
+                    {data?.title[0].text}
                   </h4>
                   <div className="max-h-[100px] overflow-hidden text-ellipsis line-clamp-3">
-                    <PrismicRichText field={data.desc} />
+                    <PrismicRichText field={data?.desc} />
                   </div>
                 </div>
                 <div className="flex gap-5">
                   <div className="w-10 h-10">
                     <PrismicNextImage
-                      field={data.author.data.img}
+                      field={data?.author?.data.img}
                       className="rounded-full w-full h-full object-cover"
                     />
                   </div>
                   <div className="flex flex-col">
-                    <span>{data.author.data.name}</span>
+                    <span>{data?.author?.data.name}</span>
                     <div className="flex gap-2">
-                      <span>{formatDate(data.date)}</span>
+                      <span>{formatDate(data?.date)}</span>
                       <span>•</span>
                       <span>
-                        {data.read_time} {data.read_time_txt}
+                        {data?.read_time} {data?.read_time_txt}
                       </span>
                     </div>
                   </div>
