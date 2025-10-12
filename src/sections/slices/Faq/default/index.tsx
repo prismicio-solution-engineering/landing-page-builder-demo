@@ -17,8 +17,7 @@ export type FaqProps = SliceComponentProps<Content.FaqSlice>;
  * Component for "Faq" Slices.
  */
 const Faq: FC<FaqProps> = ({ slice, context }) => {
-  const { page } = context as { page: LandingDocumentData };
-  const pageData = page;
+  const { pageData } = context as { pageData: LandingDocumentData };
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {

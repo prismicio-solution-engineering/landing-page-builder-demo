@@ -1,3 +1,4 @@
+"use client";
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -16,8 +17,7 @@ export type CtaProps = SliceComponentProps<Content.CtaSlice>;
  * Component for "Cta" Slices.
  */
 const Cta: FC<CtaProps> = ({ slice, context }) => {
-  const { page } = context as { page: LandingDocumentData };
-  const pageData = page;
+  const { pageData } = context as { pageData: LandingDocumentData };
 
   if (slice.variation !== "default") return null;
   return (

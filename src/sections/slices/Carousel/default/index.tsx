@@ -17,8 +17,7 @@ export type CarouselProps = SliceComponentProps<Content.CarouselSlice>;
  * Component for "Carousel" Slices.
  */
 const Carousel: FC<CarouselProps> = ({ slice, context }) => {
-  const { page } = context as { page: LandingDocumentData };
-  const pageData = page;
+  const { pageData } = context as { pageData: LandingDocumentData };
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerView = 3;

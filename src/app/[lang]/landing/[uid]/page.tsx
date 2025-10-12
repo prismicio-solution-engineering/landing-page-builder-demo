@@ -42,7 +42,6 @@ export default async function Landings({
   }
 
   const { data } = page as LandingDocument;
-
   return (
     <Layout
       lang={lang}

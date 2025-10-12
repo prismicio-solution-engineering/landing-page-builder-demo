@@ -20,7 +20,8 @@ export type HeroLandingProps = SliceComponentProps<
  * Component for "HeroLanding" Slices.
  */
 const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
-  const { pageData } = context;
+  const { pageData } = context as { pageData: LandingDocumentData };
+
   if (slice.variation !== "default") return null;
   return (
     <section
