@@ -110,9 +110,9 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
               className="flex flex-col gap-4 p-4 border border-gray-900 sm:min-w-[350px] sm:max-w-[350px]"
             >
               <div className="flex gap-1">
-                {"rate" in item && typeof item.rate === "number"
-                  ? renderStars(item.rate)
-                  : null}
+                {"rate" in item &&
+                  item.rate &&
+                  renderStars(parseInt(item.rate as string))}
               </div>
               <PrismicRichText
                 field={item.quote}
@@ -131,7 +131,14 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <PrismicRichText field={item.author} />
+                  <PrismicRichText
+                    field={item.author}
+                    components={{
+                      paragraph: ({ children }) => (
+                        <span className="font-bold">{children}</span>
+                      )
+                    }}
+                  />
                   <PrismicRichText field={item.company} />
                 </div>
               </div>
