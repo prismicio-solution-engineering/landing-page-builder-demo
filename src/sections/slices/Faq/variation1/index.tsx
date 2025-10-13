@@ -140,7 +140,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
             components={{
               heading4: ({ children }) => (
                 <h4
-                  className="font-bold text-xl"
+                  className="font-bold text-2xl"
                   style={getFontHeadingStyles(pageData)}
                 >
                   {children}
@@ -157,7 +157,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
             }}
           />
         </div>
-        <div className="flex bg-gray-900 shadow-lg -mt-2 rounded-lg">
+        <div className="flex -mt-2">
           <PrismicNextLink
             field={slice.primary.btn}
             className="flex hover:opacity-90 p-3 text-white transition-opacity duration-300 ease-inout2"

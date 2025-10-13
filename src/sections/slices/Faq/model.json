@@ -227,10 +227,12 @@
           }
         },
         "txt_foot": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Text - Foot",
-            "placeholder": ""
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
           }
         },
         "btn": {

@@ -217,11 +217,6 @@
 					}
 				]
 			},
-			"txt_foot": {
-				"__TYPE__": "FieldContent",
-				"value": "red",
-				"type": "Text"
-			},
 			"btn": {
 				"key": "47e4f8be-7a16-46aa-875c-dd8854e177d6",
 				"__TYPE__": "LinkContent",
@@ -267,6 +262,17 @@
 								}
 							]
 						]
+					}
+				]
+			},
+			"txt_foot": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing irure ea et sunt ipsum ullamco."
+						}
 					}
 				]
 			}

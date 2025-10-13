@@ -1389,12 +1389,12 @@ export interface FaqSliceVariation2Primary {
   /**
    * Text - Foot field in *Faq → Variation 2 → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: faq.variation2.primary.txt_foot
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  txt_foot: prismic.KeyTextField;
+  txt_foot: prismic.RichTextField;
 
   /**
    * Button field in *Faq → Variation 2 → Primary*
