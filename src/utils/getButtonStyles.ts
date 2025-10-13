@@ -33,6 +33,7 @@ export const getButtonStyles = (btn: any, pageData: LandingDocumentData) => {
   return {
     backgroundColor: getBackgroundColor(),
     borderRadius: getBorderRadius(),
-    fontFamily: getFontFamily()
+    fontFamily: getFontFamily(),
+    padding: "10px 20px"
   };
 };

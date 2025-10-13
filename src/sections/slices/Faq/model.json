@@ -131,17 +131,19 @@
         "title_foot": {
           "type": "StructuredText",
           "config": {
-            "label": "Title - foot",
+            "label": "Title - Foot",
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "heading4"
           }
         },
         "txt_foot": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Text - Foot",
-            "placeholder": ""
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
           }
         },
         "btn": {

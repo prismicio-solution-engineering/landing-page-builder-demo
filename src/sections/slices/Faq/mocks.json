@@ -146,15 +146,10 @@
 					{
 						"type": "heading4",
 						"content": {
-							"text": "Steam"
+							"text": "Belong"
 						}
 					}
 				]
-			},
-			"txt_foot": {
-				"__TYPE__": "FieldContent",
-				"value": "lost",
-				"type": "Text"
 			},
 			"btn": {
 				"key": "af6a0cd2-44c0-4398-bbfd-a82c81eaaa9f",
@@ -165,6 +160,17 @@
 					"text": "became",
 					"variant": "Primary"
 				}
+			},
+			"txt_foot": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing irure labore nisi reprehenderit eu minim id et non ex id et duis dolor. Sint proident minim elit adipisicing do laborum officia cupidatat ex ea do in. Amet laborum amet deserunt eiusmod."
+						}
+					}
+				]
 			}
 		},
 		"items": [

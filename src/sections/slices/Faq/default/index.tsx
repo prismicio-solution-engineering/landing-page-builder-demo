@@ -82,7 +82,12 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
                     field={item.question}
                     components={{
                       heading3: ({ children }) => (
-                        <h3 className="text-xl">{children}</h3>
+                        <h3
+                          className="font-bold text-xl"
+                          style={getFontHeadingStyles(pageData)}
+                        >
+                          {children}
+                        </h3>
                       )
                     }}
                   />

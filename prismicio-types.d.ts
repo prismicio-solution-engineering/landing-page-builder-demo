@@ -1293,7 +1293,7 @@ export interface FaqSliceVariation1Primary {
   grp: prismic.GroupField<Simplify<FaqSliceVariation1PrimaryGrpItem>>;
 
   /**
-   * Title - foot field in *Faq → Variation 1 → Primary*
+   * Title - Foot field in *Faq → Variation 1 → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1305,12 +1305,12 @@ export interface FaqSliceVariation1Primary {
   /**
    * Text - Foot field in *Faq → Variation 1 → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: faq.variation1.primary.txt_foot
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  txt_foot: prismic.KeyTextField;
+  txt_foot: prismic.RichTextField;
 
   /**
    * Button field in *Faq → Variation 1 → Primary*
