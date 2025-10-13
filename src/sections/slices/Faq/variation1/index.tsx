@@ -157,10 +157,10 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
             }}
           />
         </div>
-        <div className="bg-gray-900 shadow-lg rounded-lg">
+        <div className="flex bg-gray-900 shadow-lg -mt-2 rounded-lg">
           <PrismicNextLink
             field={slice.primary.btn}
-            className="flex hover:opacity-90 -mt-2 w-fit text-white transition-opacity duration-300 ease-inout2"
+            className="flex hover:opacity-90 p-3 text-white transition-opacity duration-300 ease-inout2"
             style={
               getButtonStyles(
                 slice.primary.btn,

@@ -1,6 +1,12 @@
+"use client";
 import { FC } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import Container from "@/components/Container";
+import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { getButtonStyles } from "@/utils/getButtonStyles";
+import { LandingDocumentData } from "@/prismicio-types";
 
 /**
  * Props for `Cta`.
@@ -10,41 +16,53 @@ export type CtaProps = SliceComponentProps<Content.CtaSlice>;
 /**
  * Component for "Cta" Slices.
  */
-const Cta: FC<CtaProps> = ({ slice }) => {
+const Cta: FC<CtaProps> = ({ slice, context }) => {
+  const { pageData } = context as { pageData: LandingDocumentData };
+
+  if (slice.variation !== "variation1") return null;
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={`flex justify-center my-[120px]`}
+      style={getFontTextStyles(pageData)}
     >
-      Placeholder component for cta (variation: {slice.variation}) slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server@latest"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select a model optimized for coding (e.g. Claude 3.7 Sonnet or similar)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 🎙️ Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       * 📚 Documentation: https://prismic.io/docs/ai#code-with-prismics-mcp-server
-       */}
+      <Container className="flex flex-col gap-20" size="xl">
+        <div className="flex items-start gap-10">
+          <PrismicRichText
+            field={slice.primary.title}
+            components={{
+              heading2: ({ children }) => (
+                <h2
+                  className="font-bold text-4xl"
+                  style={getFontHeadingStyles(pageData)}
+                >
+                  {children}
+                </h2>
+              )
+            }}
+          />
+          <div className="flex flex-col gap-4 sm:max-w-[600px]">
+            <PrismicRichText field={slice.primary.txt} />
+            <div className="flex gap-2">
+              {slice?.primary?.btns?.map((btn, index) => (
+                <PrismicNextLink
+                  field={btn}
+                  key={index}
+                  className="hover:opacity-90 p-3 text-white transition-opacity duration-300 ease-inout2"
+                  style={getButtonStyles(btn, pageData) as React.CSSProperties}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="w-full sm:max-h-[600px]">
+          <PrismicNextImage
+            field={slice.primary.img}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Container>
     </section>
   );
 };
