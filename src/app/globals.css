@@ -1,13 +1,8 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: Inter-Bold;
-  src: url(../assets//fonts/Inter/Inter-Bold.ttf);
-  font-display: swap;
-}
-@font-face {
-  font-family: Inter-Regular;
-  src: url(../assets/fonts/Inter/Inter-Regular.ttf);
+  font-family: Inter;
+  src: url(../assets/fonts/Inter/Inter-Variable.ttf);
   font-display: swap;
 }
 @font-face {
@@ -32,8 +27,7 @@
   --color-warning: #f59e0b;
   --color-success: #10b981;
   /*----------  FONTS ----------*/
-  --font-inter: "Inter-Regular", sans-serif;
-  --font-inter-bold: "Inter-Bold", sans-serif;
+  --font-inter: "Inter", sans-serif;
   --font-proxima-bold: "Proxima-Bold", sans-serif;
   /*----------  BEZIER CURVES  ----------*/
   --ease-in1: cubic-bezier(0.47, 0, 0.745, 0.715);

@@ -4,7 +4,7 @@ export const getFontTextStyles = (pageData: LandingDocumentData) => {
   const getFontFamily = () => {
     switch (pageData?.font_txt) {
       case "Inter":
-        return "'Inter-Regular', sans-serif";
+        return "'Inter', sans-serif";
       default:
         return "Helvetica, Arial, sans-serif";
     }
