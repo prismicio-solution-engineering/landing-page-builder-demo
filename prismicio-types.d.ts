@@ -422,7 +422,7 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomeDocumentDataSlicesSlice = never;
+type HomeDocumentDataSlicesSlice = HeroHomeSlice;
 
 /**
  * Content for Home documents
@@ -1765,6 +1765,36 @@ export type TestimonialsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for HeroHome Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroHomeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroHome*
+ */
+type HeroHomeSliceVariation = HeroHomeSliceDefault;
+
+/**
+ * HeroHome Shared Slice
+ *
+ * - **API ID**: `hero_home`
+ * - **Description**: HeroHome
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroHomeSlice = prismic.SharedSlice<
+  "hero_home",
+  HeroHomeSliceVariation
+>;
+
+/**
  * Primary content in *HeroLanding → Default → Primary*
  */
 export interface HeroLandingSliceDefaultPrimary {
@@ -2077,6 +2107,9 @@ declare module "@prismicio/client" {
       TestimonialsSliceDefault,
       TestimonialsSliceVariation1,
       TestimonialsSliceVariation2,
+      HeroHomeSlice,
+      HeroHomeSliceVariation,
+      HeroHomeSliceDefault,
       HeroLandingSlice,
       HeroLandingSliceDefaultPrimary,
       HeroLandingSliceVariation1Primary,

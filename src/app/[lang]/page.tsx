@@ -32,8 +32,9 @@ export default async function Home({
 
   const pageService = new PageService(lang);
 
-  const [page] = await Promise.all([
-    pageService.getSinglePage({ documentType: "home" })
+  const [page, landingPages] = await Promise.all([
+    pageService.getSinglePage({ documentType: "home" }),
+    pageService.getAllPageByTypes({ documentType: "landing" })
   ]);
 
   const { data } = page as HomeDocument;
@@ -51,6 +52,7 @@ export default async function Home({
         ...componentsHeros,
         ...componentsSlices
       }}
+      context={{ landingPages: landingPages }}
     />
     // </Layout>
   );
