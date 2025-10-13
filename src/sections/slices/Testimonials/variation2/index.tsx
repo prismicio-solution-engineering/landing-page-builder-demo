@@ -39,7 +39,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
     const interval = setInterval(() => {
       const nextIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
       changeIndex(nextIndex);
-    }, 8000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [maxIndex, currentIndex]);
