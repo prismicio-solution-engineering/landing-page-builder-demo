@@ -173,10 +173,11 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
           <div className="flex gap-2">
             {[...Array(slice.primary.grp.length)]?.map((_, i) => (
               <div
-                className={`rounded-full w-2 h-2 ${
+                className={`rounded-full w-2 h-2 cursor-pointer ${
                   i === currentIndex ? "bg-gray-900" : "bg-gray-500"
                 }`}
                 key={i}
+                onClick={() => setCurrentIndex(i)}
               />
             ))}
           </div>
