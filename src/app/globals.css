@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: Inter;
-  src: url(../assets/fonts/Inter/Inter-Variable.ttf);
+  src: url(../assets/fonts/Inter-Variable.ttf);
   font-display: swap;
 }
 @font-face {
@@ -54,17 +54,4 @@ html,
 body,
 #__next {
   height: 100%;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-scroll {
-  animation: scroll 5s linear infinite;
 }

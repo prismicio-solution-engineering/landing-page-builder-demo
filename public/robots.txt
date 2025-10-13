@@ -3,7 +3,7 @@ User-agent: black-listed-bot
 Disallow: /slice-simulator
 
 # Host
-Host: https://nomdusite.com/
+Host: https://template-landing.vercel.app/
 
 # Sitemaps
-Sitemap: https://nomdusite/sitemap.xml
+Sitemap: https://template-landing.vercel.app/sitemap.xml
