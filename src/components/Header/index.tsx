@@ -6,6 +6,7 @@ import Container from "../Container";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { getFontTextStyles } from "@/utils/getFontStyles";
 import { getButtonStyles } from "@/utils/getButtonStyles";
+import Link from "next/link";
 
 const Header = (props: PropsLayoutHF) => {
   const { page } = props;
@@ -41,7 +42,9 @@ const Header = (props: PropsLayoutHF) => {
         style={getFontTextStyles(data)}
       >
         <Container className="flex justify-between items-center h-full">
-          <PrismicNextImage field={data.logo} className="w-auto h-8" />
+          <Link href={"/"} className="flex items-center gap-2">
+            <PrismicNextImage field={data.logo} className="w-auto h-8" />
+          </Link>
           <nav className="flex gap-4">
             {data?.lnks?.map((item, index) => (
               <PrismicNextLink

@@ -80,34 +80,36 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
                   />
                 )}
               </div>
-              <PrismicRichText
-                field={item.quote}
-                components={{
-                  paragraph: ({ children }) => (
-                    <p className="font-bold text-lg text-center">
-                      "{children}"
-                    </p>
-                  )
-                }}
-              />
-              <div className="flex flex-col justify-center items-center gap-4 w-full">
-                <div className="w-14 h-14">
-                  <PrismicNextImage
-                    field={item.img}
-                    className="rounded-full w-full h-full object-cover"
-                    priority
-                  />
-                </div>
-                <div className="flex flex-col text-center">
-                  <PrismicRichText
-                    field={item.author}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <span className="font-bold">{children}</span>
-                      )
-                    }}
-                  />
-                  <PrismicRichText field={item.company} />
+              <div className="flex flex-col gap-10 sm:min-h-[300px]">
+                <PrismicRichText
+                  field={item.quote}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <p className="font-bold text-lg text-center">
+                        "{children}"
+                      </p>
+                    )
+                  }}
+                />
+                <div className="flex flex-col justify-center items-center gap-4 w-full">
+                  <div className="w-14 h-14">
+                    <PrismicNextImage
+                      field={item.img}
+                      className="rounded-full w-full h-full object-cover"
+                      priority
+                    />
+                  </div>
+                  <div className="flex flex-col text-center">
+                    <PrismicRichText
+                      field={item.author}
+                      components={{
+                        paragraph: ({ children }) => (
+                          <span className="font-bold">{children}</span>
+                        )
+                      }}
+                    />
+                    <PrismicRichText field={item.company} />
+                  </div>
                 </div>
               </div>
             </div>

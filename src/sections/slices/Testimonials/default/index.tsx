@@ -114,32 +114,34 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
                   item.rate &&
                   renderStars(parseInt(item.rate as string))}
               </div>
-              <PrismicRichText
-                field={item.quote}
-                components={{
-                  paragraph: ({ children }) => (
-                    <p className="min-h-[144px]">"{children}"</p>
-                  )
-                }}
-              />
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10">
-                  <PrismicNextImage
-                    field={item.img}
-                    className="rounded-full w-full h-full object-cover"
-                    priority
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <PrismicRichText
-                    field={item.author}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <span className="font-bold">{children}</span>
-                      )
-                    }}
-                  />
-                  <PrismicRichText field={item.company} />
+              <div className="flex flex-col justify-between sm:min-h-[250px]">
+                <PrismicRichText
+                  field={item.quote}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <p className="min-h-[144px]">"{children}"</p>
+                    )
+                  }}
+                />
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10">
+                    <PrismicNextImage
+                      field={item.img}
+                      className="rounded-full w-full h-full object-cover"
+                      priority
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <PrismicRichText
+                      field={item.author}
+                      components={{
+                        paragraph: ({ children }) => (
+                          <span className="font-bold">{children}</span>
+                        )
+                      }}
+                    />
+                    <PrismicRichText field={item.company} />
+                  </div>
                 </div>
               </div>
             </div>

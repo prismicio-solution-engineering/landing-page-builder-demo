@@ -99,7 +99,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
           </div>
         </div>
         {/* Nav carousel */}
-        <div className="flex flex-row-reverse justify-between items-center">
+        <div className="flex flex-row-reverse items-center gap-102 ml-auto sm:max-w-[500px]">
           <div className="flex gap-2">
             {[...Array(slice.primary.grp.length)]?.map((_, i) => (
               <div

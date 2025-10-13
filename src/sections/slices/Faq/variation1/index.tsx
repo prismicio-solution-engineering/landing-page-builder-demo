@@ -25,6 +25,8 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
   };
   const FaqItem = ({ item, index }: { item: any; index: number }) => {
     const isOpen = selectedIndex === index;
+
+    if (slice.variation !== "variation1") return null;
     return (
       <div
         className={`break-inside-avoid flex flex-col border border-gray-900 overflow-hidden ${isOpen ? "bg-gray-50" : ""}`}

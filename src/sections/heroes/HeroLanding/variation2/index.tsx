@@ -63,7 +63,14 @@ const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
                 <span className="text-white">{slice.primary.btn_txt}</span>
               </button>
             </form>
-            <PrismicRichText field={slice.primary.legals_dsc} />
+            <PrismicRichText
+              field={slice.primary.legals_dsc}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className="text-gray-600 text-xs">{children}</p>
+                )
+              }}
+            />
           </div>
         </div>
         <div className="flex-1 max-w-[1000px]">
