@@ -100,7 +100,7 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
           <PrismicRichText field={slice.primary.txt} />
         </div>
         <div
-          className={`flex justify-center gap-4 transition-opacity duration-500 ease-inout2 ${
+          className={`flex justify-center gap-4 transition-opacity duration-500 ease-inout2 mt-5 ${
             isTransitioning ? "opacity-0" : "opacity-100"
           }`}
         >
@@ -118,7 +118,7 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
                 field={item.quote}
                 components={{
                   paragraph: ({ children }) => (
-                    <p className="min-h-[144px]">"{children}"</p>
+                    <p className="min-h-[144px] font-bold">"{children}"</p>
                   )
                 }}
               />
@@ -143,11 +143,13 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
                 </div>
                 <div className="bg-gray-900 w-[1px] h-full"></div>
                 <div className="max-w-20 h-full">
-                  <PrismicNextImage
-                    field={item.logo}
-                    className="w-full h-full object-contain object-left"
-                    priority
-                  />
+                  {"logo" in item && item.logo && (
+                    <PrismicNextImage
+                      field={item.logo}
+                      className="w-full h-full object-contain object-left"
+                      priority
+                    />
+                  )}
                 </div>
               </div>
             </div>
