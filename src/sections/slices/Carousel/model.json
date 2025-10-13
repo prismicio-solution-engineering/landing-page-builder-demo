@@ -162,7 +162,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading3"
+            "multi": "heading2"
           }
         },
         "grp": {

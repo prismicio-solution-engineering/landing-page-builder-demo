@@ -5,7 +5,7 @@ import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Container from "@/components/Container";
 import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
-import { ArticleDocument, LandingDocumentData } from "@/prismicio-types";
+import { LandingDocumentData } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
 
 /**

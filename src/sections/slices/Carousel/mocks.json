@@ -50,8 +50,8 @@
 							[
 								"article",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "553e793c-e993-4da8-8823-ec908c217887",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "DocumentLink",
 										"id": "mock_document_id"
@@ -143,9 +143,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading3",
+						"type": "heading2",
 						"content": {
-							"text": "Early"
+							"text": "Highest"
 						}
 					}
 				]

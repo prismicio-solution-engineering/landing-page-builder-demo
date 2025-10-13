@@ -51,7 +51,7 @@ const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
               <input
                 className="flex-1 border-grayscale-900 p-2 border"
                 style={{
-                  outlineColor: pageData.primary_color || "#000"
+                  outlineColor: pageData?.primary_color || "#000"
                 }}
                 placeholder={slice.primary.input_placeholder || "Your email"}
               />
