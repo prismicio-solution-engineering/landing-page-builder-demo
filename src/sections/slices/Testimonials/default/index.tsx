@@ -24,7 +24,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
   const totalItems = slice.primary.grp.length;
   const pages = Math.max(1, Math.ceil(totalItems / itemsPerView));
   const maxIndex = Math.max(0, pages - 1);
-  const gapWidth = 16 * (itemsPerView - 6);
+  const gapWidth = 16 * (itemsPerView - 3);
 
   const changeIndex = (newIndex: number) => {
     if (newIndex === currentIndex) return;
@@ -101,7 +101,7 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
             {slice.primary.grp.map((item, index) => (
               <div
                 key={index}
-                className="box-border flex flex-col gap-4 p-4 border border-gray-900"
+                className="box-border flex flex-col gap-4 p-6 border border-gray-900 sm:max-w-[355px]"
                 style={{ flex: `0 0 ${100 / totalItems}%` }}
               >
                 <div className="flex gap-1">
@@ -109,7 +109,7 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
                     item.rate &&
                     renderStars(parseInt(item.rate as string))}
                 </div>
-                <div className="flex flex-col justify-between sm:min-h-[250px]">
+                <div className="flex flex-col justify-between sm:min-h-[240px]">
                   <PrismicRichText
                     field={item.quote}
                     components={{
