@@ -2,11 +2,15 @@ import { LandingDocumentData } from "@/prismicio-types";
 import { LinkField } from "@prismicio/client";
 
 export const getButtonStyles = (
-  btn: LinkField,
+  btn: LinkField | string | undefined,
   pageData: LandingDocumentData
 ) => {
   const getBackgroundColor = () => {
-    switch (btn?.variant || btn) {
+    const variant =
+      typeof btn === "object" && btn !== null && "variant" in btn
+        ? (btn as any).variant
+        : btn;
+    switch (variant) {
       case "Primary":
         return pageData?.primary_color;
       default:
