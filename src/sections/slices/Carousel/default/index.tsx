@@ -17,34 +17,31 @@ export type CarouselProps = SliceComponentProps<Content.CarouselSlice>;
  * Component for "Carousel" Slices.
  */
 const Carousel: FC<CarouselProps> = ({ slice, context }) => {
-  const { pageData } = context as { pageData: LandingDocumentData };
+  const { pageData, locale } = context as {
+    pageData: LandingDocumentData;
+    locale?: string;
+  };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 3;
+  const itemsPerView = 1;
   const maxIndex = Math.max(0, slice.primary.grp.length - itemsPerView);
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const months = [
-      "Jan",
-      "Fév",
-      "Mar",
-      "Avr",
-      "Mai",
-      "Juin",
-      "Juil",
-      "Août",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Déc"
-    ];
+  const formatDate = (isoDate?: string) => {
+    if (!isoDate) return "";
 
-    const day = date.getDate();
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
+    const [y, m, d] = isoDate.split("-").map(Number);
+    const date = new Date(y, (m ?? 1) - 1, d ?? 1);
 
-    return `${day} ${month} ${year}`;
+    const formattedDate = new Intl.DateTimeFormat(locale || "fr-FR", {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    }).format(date);
+
+    return formattedDate
+      .split(" ")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   };
 
   const handlePrevious = () => {
@@ -105,7 +102,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
               }}
             />
           </div>
-          <div className="hover:bg-gray-900 p-3 border border-gray-900 hover:text-white transition-all duration-300 ease-inout2 cursor-pointer">
+          <div className="hover:bg-gray-900 px-4 py-2 border border-gray-900 hover:text-white transition-all duration-200 ease-inout1 cursor-pointer">
             <span>{slice.primary.btn_txt}</span>
           </div>
         </div>
@@ -132,8 +129,11 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
                     />
                   )}
                 </div>
-                <div className="flex flex-col gap-3 mt-2">
-                  <span className="font-bold text-md">
+                <div className="flex flex-col gap-2 mt-2">
+                  <span
+                    className="font-bold text-md"
+                    style={{ color: pageData?.primary_color || "#000000" }}
+                  >
                     {data?.category?.data?.name}
                   </span>
                   <h4
@@ -154,7 +154,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
                     />
                   </div>
                   <div className="flex flex-col">
-                    <span>{data?.author?.data.name}</span>
+                    <span className="font-bold">{data?.author?.data.name}</span>
                     <div className="flex gap-2">
                       <span>{formatDate(data?.date)}</span>
                       <span>•</span>

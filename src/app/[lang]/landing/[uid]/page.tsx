@@ -42,6 +42,7 @@ export default async function Landings({
   }
 
   const { data } = page as LandingDocument;
+
   return (
     <Layout
       lang={lang}
@@ -55,7 +56,7 @@ export default async function Landings({
           ...componentsHeros,
           ...componentsSlices
         }}
-        context={{ pageData: page.data }}
+        context={{ pageData: page.data, locale: page?.lang }}
       />
       <></>
     </Layout>

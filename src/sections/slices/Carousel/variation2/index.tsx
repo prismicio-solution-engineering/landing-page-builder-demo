@@ -54,7 +54,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
               width: `${groupWidth * 2}px`
             }}
           >
-            {Array.from({ length: 3 }, (_, groupIndex) =>
+            {Array.from({ length: 4 }, (_, groupIndex) =>
               slice.primary.grp.map((item, index) => (
                 <div
                   key={`group-${groupIndex}-${index}`}
