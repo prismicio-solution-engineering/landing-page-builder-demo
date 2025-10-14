@@ -20,19 +20,15 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
   const { pageData } = context as { pageData: LandingDocumentData };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const itemsPerView = 3;
   const totalItems = slice.primary.grp.length;
-  const maxIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+  const pages = Math.max(1, Math.ceil(totalItems / itemsPerView));
+  const maxIndex = Math.max(0, pages - 1);
+  const gapWidth = 16 * (itemsPerView - 6);
 
   const changeIndex = (newIndex: number) => {
     if (newIndex === currentIndex) return;
-
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentIndex(newIndex);
-      setIsTransitioning(false);
-    }, 500);
+    setCurrentIndex(newIndex);
   };
 
   useEffect(() => {
@@ -66,11 +62,6 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
     ));
   };
 
-  const getCurrentItems = () => {
-    const startIndex = currentIndex * itemsPerView;
-    return slice.primary.grp.slice(startIndex, startIndex + itemsPerView);
-  };
-
   if (slice.variation !== "default") return null;
   return (
     <section
@@ -81,7 +72,7 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
     >
       <Container
         className="flex flex-col justify-between gap-4 text-left"
-        size="lg"
+        size="xl"
       >
         <div className="flex flex-col justify-center gap-4 text-center">
           <PrismicRichText
@@ -99,53 +90,58 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
           />
           <PrismicRichText field={slice.primary.txt} />
         </div>
-        <div
-          className={`flex justify-center gap-4 transition-opacity duration-500 ease-inout2 ${
-            isTransitioning ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          {getCurrentItems().map((item, index) => (
-            <div
-              key={`${currentIndex}-${index}`}
-              className="flex flex-col gap-4 p-4 border border-gray-900 sm:min-w-[350px] sm:max-w-[350px]"
-            >
-              <div className="flex gap-1">
-                {"rate" in item &&
-                  item.rate &&
-                  renderStars(parseInt(item.rate as string))}
-              </div>
-              <div className="flex flex-col justify-between sm:min-h-[250px]">
-                <PrismicRichText
-                  field={item.quote}
-                  components={{
-                    paragraph: ({ children }) => (
-                      <p className="min-h-[144px]">"{children}"</p>
-                    )
-                  }}
-                />
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10">
-                    <PrismicNextImage
-                      field={item.img}
-                      className="rounded-full w-full h-full object-cover"
-                      priority
-                    />
-                  </div>
-                  <div className="flex flex-col">
-                    <PrismicRichText
-                      field={item.author}
-                      components={{
-                        paragraph: ({ children }) => (
-                          <span className="font-bold">{children}</span>
-                        )
-                      }}
-                    />
-                    <PrismicRichText field={item.company} />
+        <div className="relative w-full overflow-hidden">
+          <div
+            className="flex gap-4 transition-transform duration-800 ease-inout2"
+            style={{
+              width: `calc(${(totalItems / itemsPerView) * 100}% + ${gapWidth}px)`,
+              transform: `translateX(-${(currentIndex * itemsPerView * 100) / totalItems}%)`
+            }}
+          >
+            {slice.primary.grp.map((item, index) => (
+              <div
+                key={index}
+                className="box-border flex flex-col gap-4 p-4 border border-gray-900"
+                style={{ flex: `0 0 ${100 / totalItems}%` }}
+              >
+                <div className="flex gap-1">
+                  {"rate" in item &&
+                    item.rate &&
+                    renderStars(parseInt(item.rate as string))}
+                </div>
+                <div className="flex flex-col justify-between sm:min-h-[250px]">
+                  <PrismicRichText
+                    field={item.quote}
+                    components={{
+                      paragraph: ({ children }) => (
+                        <p className="min-h-[144px]">"{children}"</p>
+                      )
+                    }}
+                  />
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10">
+                      <PrismicNextImage
+                        field={item.img}
+                        className="rounded-full w-full h-full object-cover"
+                        priority
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <PrismicRichText
+                        field={item.author}
+                        components={{
+                          paragraph: ({ children }) => (
+                            <span className="font-bold">{children}</span>
+                          )
+                        }}
+                      />
+                      <PrismicRichText field={item.company} />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="flex justify-center gap-2 mt-4">

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -20,19 +20,29 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
   const { pageData } = context as { pageData: LandingDocumentData };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const itemsPerView = 2;
+  const itemsPerView = 2; // nombre d'items visibles
+  const step = 2; // défilement par 2 items
   const totalItems = slice.primary.grp.length;
-  const maxIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+
+  // Indices de départ pour chaque "page" en avançant de `step`,
+  // en s'assurant que la dernière page affiche le dernier item.
+  const startIndices = useMemo(() => {
+    if (totalItems <= itemsPerView) return [0];
+    const arr: number[] = [];
+    for (let i = 0; i + itemsPerView <= totalItems; i += step) {
+      arr.push(i);
+    }
+    const lastStart = Math.max(0, totalItems - itemsPerView);
+    if (arr[arr.length - 1] !== lastStart) arr.push(lastStart);
+    return arr;
+  }, [totalItems]);
+
+  const stepsCount = startIndices.length;
+  const maxIndex = Math.max(0, stepsCount - 1);
 
   const changeIndex = (newIndex: number) => {
     if (newIndex === currentIndex) return;
-
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentIndex(newIndex);
-      setIsTransitioning(false);
-    }, 500);
+    setCurrentIndex(newIndex);
   };
 
   useEffect(() => {
@@ -66,10 +76,8 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
     ));
   };
 
-  const getCurrentItems = () => {
-    const startIndex = currentIndex * itemsPerView;
-    return slice.primary.grp.slice(startIndex, startIndex + itemsPerView);
-  };
+  const GAP_PX = 16;
+  const gapWidthPx = GAP_PX * Math.max(0, totalItems - 1);
 
   if (slice.variation !== "variation1") return null;
   return (
@@ -99,65 +107,70 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
           />
           <PrismicRichText field={slice.primary.txt} />
         </div>
-        <div
-          className={`flex justify-center gap-4 transition-opacity duration-500 ease-inout2 mt-5 ${
-            isTransitioning ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          {getCurrentItems().map((item, index) => (
-            <div
-              key={`${currentIndex}-${index}`}
-              className="flex flex-col gap-4 p-4 sm:min-w-[50%] sm:max-w-[50%]"
-            >
-              <div className="flex gap-1">
-                {"rate" in item &&
-                  item.rate &&
-                  renderStars(parseInt(item.rate as string))}
-              </div>
-              <PrismicRichText
-                field={item.quote}
-                components={{
-                  paragraph: ({ children }) => (
-                    <p className="min-h-[144px] font-bold">"{children}"</p>
-                  )
-                }}
-              />
-              <div className="flex items-center gap-4 w-full">
-                <div className="w-10 h-10">
-                  <PrismicNextImage
-                    field={item.img}
-                    className="rounded-full w-full h-full object-cover"
-                    priority
-                  />
+        <div className="relative mt-5 w-full overflow-hidden">
+          <div
+            className="flex gap-4 transition-transform duration-800 ease-inout2"
+            style={{
+              width: `calc(${(totalItems / itemsPerView) * 100}% + ${gapWidthPx}px)`,
+              transform: `translateX(-${(startIndices[currentIndex] * 100) / totalItems}%)`
+            }}
+          >
+            {slice.primary.grp.map((item, index) => (
+              <div
+                key={index}
+                className="box-border flex flex-col gap-4 p-4 sm:max-w-[550px]"
+                style={{ flex: `0 0 ${100 / totalItems}%` }}
+              >
+                <div className="flex gap-1">
+                  {"rate" in item &&
+                    item.rate &&
+                    renderStars(parseInt(item.rate as string))}
                 </div>
-                <div className="flex flex-col">
-                  <PrismicRichText
-                    field={item.author}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <span className="font-bold">{children}</span>
-                      )
-                    }}
-                  />
-                  <PrismicRichText field={item.company} />
-                </div>
-                <div className="bg-gray-900 w-[1px] h-full"></div>
-                <div className="max-w-20 h-full">
-                  {"logo" in item && item.logo && (
+                <PrismicRichText
+                  field={item.quote}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <p className="min-h-[144px] font-bold">"{children}"</p>
+                    )
+                  }}
+                />
+                <div className="flex items-center gap-4 w-full">
+                  <div className="w-10 h-10">
                     <PrismicNextImage
-                      field={item.logo}
-                      className="w-full h-full object-contain object-left"
+                      field={item.img}
+                      className="rounded-full w-full h-full object-cover"
                       priority
                     />
-                  )}
+                  </div>
+                  <div className="flex flex-col">
+                    <PrismicRichText
+                      field={item.author}
+                      components={{
+                        paragraph: ({ children }) => (
+                          <span className="font-bold">{children}</span>
+                        )
+                      }}
+                    />
+                    <PrismicRichText field={item.company} />
+                  </div>
+                  <div className="bg-gray-900 w-[1px] h-full"></div>
+                  <div className="max-w-20 h-full">
+                    {"logo" in item && item.logo && (
+                      <PrismicNextImage
+                        field={item.logo}
+                        className="w-full h-full object-contain object-left"
+                        priority
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="flex justify-center gap-2 mt-4">
-          {Array.from({ length: maxIndex + 1 }, (_, index) => (
+          {Array.from({ length: stepsCount }, (_, index) => (
             <div
               key={index}
               className={`w-2 h-2 rounded-full transition-colors duration-300 ease-in-out cursor-pointer ${
