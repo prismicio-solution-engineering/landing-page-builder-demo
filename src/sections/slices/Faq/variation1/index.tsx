@@ -23,10 +23,16 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
   const toggleItem = (index: number) => {
     setSelectedIndex(selectedIndex === index ? null : index);
   };
-  const FaqItem = ({ item, index }: { item: any; index: number }) => {
+
+  type FaqItemProps = {
+    item: (typeof slice.primary.grp)[0];
+    index: number;
+  };
+
+  const FaqItem: FC<FaqItemProps> = ({ item, index }) => {
     const isOpen = selectedIndex === index;
 
-    if (slice.variation !== "variation1") return null;
+    if (slice.variation !== "variation1" || !item) return null;
     return (
       <div
         className={`break-inside-avoid flex flex-col border border-gray-900 overflow-hidden ${isOpen ? "bg-gray-50" : ""}`}

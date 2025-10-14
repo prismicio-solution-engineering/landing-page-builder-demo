@@ -114,6 +114,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
         >
           {/* Carousel */}
           {slice.primary.grp?.map((item, index) => {
+            // To do => fix type any
             const data = (item.article as unknown as ArticleDocument)
               .data as any;
             return (
