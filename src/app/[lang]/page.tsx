@@ -34,7 +34,7 @@ export default async function Home({
 
   const [page, landingPages] = await Promise.all([
     pageService.getSinglePage({ documentType: "home" }),
-    pageService.getAllPageByTypes({ documentType: "landing" })
+    pageService.getAllPageByTypes({ documentType: "landing", lang: "*" })
   ]);
 
   const { data } = page as HomeDocument;
