@@ -8,7 +8,7 @@ async function getRewrites(client: Client<AllDocumentTypes>) {
   const locales = repository.languages.map(lang => lang.id);
 
   const defaultLocale = process.env.NEXT_PUBLIC_DEFAULT_LOCALE;
-  const excludes = (process.env.NEXT_PUBLIC_EXCLUDES ?? "").split(",");
+  const excludes = (process.env.NEXT_PUBLIC_EXCLUDES_TYPES ?? "").split(",");
 
   const allDocument = await Promise.all(
     locales.map(lang => client.dangerouslyGetAll({ lang }))
