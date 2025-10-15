@@ -29,7 +29,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex justify-center my-[120px]`}
+      className={`flex justify-center py-[60px]`}
       style={getFontTextStyles(pageData)}
     >
       <Container className="flex justify-between gap-10 text-left" size="xl">

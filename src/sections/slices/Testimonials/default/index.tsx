@@ -67,7 +67,7 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex justify-center my-[120px] overflow-hidden`}
+      className={`flex justify-center py-[60px] overflow-hidden`}
       style={getFontTextStyles(pageData)}
     >
       <Container

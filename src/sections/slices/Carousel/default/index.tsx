@@ -58,7 +58,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex justify-center my-[120px] overflow-hidden`}
+      className={`flex justify-center py-[60px] overflow-hidden`}
       style={getFontTextStyles(pageData)}
     >
       <Container
