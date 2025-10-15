@@ -27,7 +27,15 @@ const HeroHome: FC<HeroHomeProps> = ({ slice, context }) => {
         size="xl"
       >
         {landingPages.map((lp, i) => (
-          <Link key={i} href={`/${lp.uid}`} className="font-bold underline">
+          <Link
+            key={i}
+            href={`/${
+              lp.lang !== process.env.NEXT_PUBLIC_DEFAULT_LOCALE
+                ? `${lp.lang}/`
+                : ""
+            }${lp.uid}`}
+            className="font-bold underline"
+          >
             {process.env.NEXT_PUBLIC_DOMAIN}/
             {lp.lang !== process.env.NEXT_PUBLIC_DEFAULT_LOCALE
               ? `${lp.lang}/`
