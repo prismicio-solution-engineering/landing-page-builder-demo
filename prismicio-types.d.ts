@@ -1444,6 +1444,177 @@ type FaqSliceVariation =
 export type FaqSlice = prismic.SharedSlice<"faq", FaqSliceVariation>;
 
 /**
+ * Primary content in *Feature → default → Primary*
+ */
+export interface MediaFeatureSliceDefaultPrimary {
+  /**
+   * Tagline field in *Feature → default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Title field in *Feature → default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Feature → default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Buttons field in *Feature → default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.default.primary.buttons
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  buttons: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary"
+    >
+  >;
+
+  /**
+   * Image field in *Feature → default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * default variation for Feature Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Layout with the media (image or video) on the right and textual content (tagline, heading, description, and actions) on the left.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MediaFeatureSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MediaFeatureSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Feature → Variation 1 → Primary*
+ */
+export interface MediaFeatureSliceVariation1Primary {
+  /**
+   * Tagline field in *Feature → Variation 1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.variation1.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Title field in *Feature → Variation 1 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.variation1.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Feature → Variation 1 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.variation1.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Buttons field in *Feature → Variation 1 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.variation1.primary.buttons
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  buttons: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary"
+    >
+  >;
+
+  /**
+   * Image field in *Feature → Variation 1 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.variation1.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Variation 1 variation for Feature Slice
+ *
+ * - **API ID**: `variation1`
+ * - **Description**: Layout with the media (image or video) on the right and textual content (tagline, heading, description, and actions) on the left.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MediaFeatureSliceVariation1 = prismic.SharedSliceVariation<
+  "variation1",
+  Simplify<MediaFeatureSliceVariation1Primary>,
+  never
+>;
+
+/**
+ * Slice variation for *Feature*
+ */
+type MediaFeatureSliceVariation =
+  | MediaFeatureSliceDefault
+  | MediaFeatureSliceVariation1;
+
+/**
+ * Feature Shared Slice
+ *
+ * - **API ID**: `media_feature`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MediaFeatureSlice = prismic.SharedSlice<
+  "media_feature",
+  MediaFeatureSliceVariation
+>;
+
+/**
  * Item in *Testimonials → Default → Primary → Grp*
  */
 export interface TestimonialsSliceDefaultPrimaryGrpItem {
@@ -2005,12 +2176,146 @@ export type HeroLandingSliceVariation2 = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *HeroLanding → Variation 3 → Primary*
+ */
+export interface HeroLandingSliceVariation3Primary {
+  /**
+   * Title field in *HeroLanding → Variation 3 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_landing.variation3.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *HeroLanding → Variation 3 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_landing.variation3.primary.txt
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  txt: prismic.RichTextField;
+
+  /**
+   * Buttons field in *HeroLanding → Variation 3 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_landing.variation3.primary.btns
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  btns: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary"
+    >
+  >;
+
+  /**
+   * Image field in *HeroLanding → Variation 3 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_landing.variation3.primary.img
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  img: prismic.ImageField<never>;
+}
+
+/**
+ * Variation 3 variation for HeroLanding Slice
+ *
+ * - **API ID**: `variation3`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroLandingSliceVariation3 = prismic.SharedSliceVariation<
+  "variation3",
+  Simplify<HeroLandingSliceVariation3Primary>,
+  never
+>;
+
+/**
+ * Primary content in *HeroLanding → Variation 4 → Primary*
+ */
+export interface HeroLandingSliceVariation4Primary {
+  /**
+   * Title field in *HeroLanding → Variation 4 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_landing.variation4.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *HeroLanding → Variation 4 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_landing.variation4.primary.txt
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  txt: prismic.RichTextField;
+
+  /**
+   * Buttons field in *HeroLanding → Variation 4 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_landing.variation4.primary.btns
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  btns: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary"
+    >
+  >;
+
+  /**
+   * Image field in *HeroLanding → Variation 4 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_landing.variation4.primary.img
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  img: prismic.ImageField<never>;
+}
+
+/**
+ * Variation 4 variation for HeroLanding Slice
+ *
+ * - **API ID**: `variation4`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroLandingSliceVariation4 = prismic.SharedSliceVariation<
+  "variation4",
+  Simplify<HeroLandingSliceVariation4Primary>,
+  never
+>;
+
+/**
  * Slice variation for *HeroLanding*
  */
 type HeroLandingSliceVariation =
   | HeroLandingSliceDefault
   | HeroLandingSliceVariation1
-  | HeroLandingSliceVariation2;
+  | HeroLandingSliceVariation2
+  | HeroLandingSliceVariation3
+  | HeroLandingSliceVariation4;
 
 /**
  * HeroLanding Shared Slice
@@ -2096,6 +2401,12 @@ declare module "@prismicio/client" {
       FaqSliceDefault,
       FaqSliceVariation1,
       FaqSliceVariation2,
+      MediaFeatureSlice,
+      MediaFeatureSliceDefaultPrimary,
+      MediaFeatureSliceVariation1Primary,
+      MediaFeatureSliceVariation,
+      MediaFeatureSliceDefault,
+      MediaFeatureSliceVariation1,
       TestimonialsSlice,
       TestimonialsSliceDefaultPrimaryGrpItem,
       TestimonialsSliceDefaultPrimary,
@@ -2114,10 +2425,14 @@ declare module "@prismicio/client" {
       HeroLandingSliceDefaultPrimary,
       HeroLandingSliceVariation1Primary,
       HeroLandingSliceVariation2Primary,
+      HeroLandingSliceVariation3Primary,
+      HeroLandingSliceVariation4Primary,
       HeroLandingSliceVariation,
       HeroLandingSliceDefault,
       HeroLandingSliceVariation1,
       HeroLandingSliceVariation2,
+      HeroLandingSliceVariation3,
+      HeroLandingSliceVariation4,
     };
   }
 }

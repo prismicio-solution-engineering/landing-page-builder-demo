@@ -12,7 +12,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 /**
  * Props for `Feature`.
  */
-export type FeatureProps = SliceComponentProps<Content.FeatureSlice>;
+export type FeatureProps = SliceComponentProps<Content.MediaFeatureSlice>;
 
 const Feature: FC<FeatureProps> = ({ slice, context }) => {
     const { pageData } = context as { pageData: LandingDocumentData };
