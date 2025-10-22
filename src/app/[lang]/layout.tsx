@@ -11,6 +11,7 @@ export default function RootLayout({
   params: Promise<{ lang: string }>;
 }>) {
   const resolvedParams = use(params);
+  console.log(resolvedParams)
   return (
     <html lang={resolvedParams.lang}>
       <body suppressHydrationWarning>{children}</body>

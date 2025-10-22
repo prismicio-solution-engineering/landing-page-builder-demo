@@ -106,7 +106,7 @@ export async function generateMetadata({
         }
       ]
     },
-    metadataBase: new URL(domain),
+    // metadataBase: new URL(domain),
     alternates: {
       ...alternateLanguages
     },
