@@ -14,23 +14,22 @@ export type HeroLandingProps = SliceComponentProps<
   Content.HeroLandingSlice,
   { pageData: LandingDocumentData }
 >;
-
 /**
  * Component for "HeroLanding" Slices.
- */
+*/
 const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
   const { pageData } = context as { pageData: LandingDocumentData };
 
-  if (slice.variation !== "default") return null;
+  if (slice.variation !== "variation3") return null;
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex justify-center pt-[120px] pb-[60px]`}
+      className={`relative flex justify-center h-[75vh] box-border`}
       style={getFontTextStyles(pageData)}
     >
-      <Container className="flex justify-between gap-10 text-left" size="xl">
-        <div className="flex flex-col flex-1 justify-center gap-5">
+      <Container className="flex justify-between gap-10 text-left h-full z-10 text-white" size="xl">
+        <div className="flex flex-col flex-1 justify-center gap-6 max-w-lg">
           <PrismicRichText
             field={slice.primary.title}
             components={{
@@ -56,13 +55,16 @@ const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
             ))}
           </div>
         </div>
-        <div className="flex-1 max-w-[1000px]">
+      </Container>
+        <div className="
+          absolute top-0 left-0 w-full h-full object-fill z-0
+          before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-black before:opacity-50
+        ">
           <PrismicNextImage
             field={slice.primary.img}
-            className="rounded-lg w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
-      </Container>
     </section>
   );
 };

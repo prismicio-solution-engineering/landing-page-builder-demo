@@ -6,5 +6,6 @@ export const components = {
   carousel: dynamic(() => import("./Carousel")),
   cta: dynamic(() => import("./Cta")),
   faq: dynamic(() => import("./Faq")),
-  testimonials: dynamic(() => import("./Testimonials"))
+  media_feature: dynamic(() => import("./Feature")),
+  testimonials: dynamic(() => import("./Testimonials")),
 };
