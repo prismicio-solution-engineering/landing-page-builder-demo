@@ -78,7 +78,7 @@ const Header = (props: PropsLayoutHF) => {
             className="flex items-center gap-2 hover:opacity-90 p-3 w-fit text-white transition-opacity duration-300 ease-inout2"
             style={getButtonStyles(data.cta, data) as React.CSSProperties}
           >
-            <span>{data.cta.text}</span>
+            <span>{data.cta?.text}</span>
             <svg width="14" height="13" viewBox="0 0 14 13" fill="none">
               <path
                 d="M7.69603 0.870117L12.9993 6.17342M12.9993 6.17342L7.69603 11.4767M12.9993 6.17342L1 6.17342"
