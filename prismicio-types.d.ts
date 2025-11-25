@@ -359,6 +359,88 @@ export type CategoryDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Contact documents
+ */
+interface ContactDocumentData {
+  /**
+   * Image field in *Contact*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Contact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Position field in *Contact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.position
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  position: prismic.KeyTextField;
+
+  /**
+   * Email field in *Contact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Calendar field in *Contact*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.calendar
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  calendar: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Contact document from Prismic
+ *
+ * - **API ID**: `contact`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContactDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ContactDocumentData>,
+    "contact",
+    Lang
+  >;
+
+/**
  * Content for Footer documents
  */
 interface FooterDocumentData {
@@ -839,6 +921,17 @@ interface RecapDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   meta_image: prismic.ImageField<never> /**
+   * Client Logo field in *Recap*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.client_logo
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */;
+  client_logo: prismic.ImageField<never>;
+
+  /**
    * Hero Eyebrow field in *Recap*
    *
    * - **Field Type**: Text
@@ -846,7 +939,7 @@ interface RecapDocumentData {
    * - **API ID Path**: recap.hero_eyebrow
    * - **Tab**: Hero
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   hero_eyebrow: prismic.KeyTextField;
 
   /**
@@ -872,26 +965,22 @@ interface RecapDocumentData {
   hero_text: prismic.RichTextField;
 
   /**
-   * Client Name field in *Recap*
+   * Contact field in *Recap*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: recap.client_name
+   * - **API ID Path**: recap.contact
    * - **Tab**: Hero
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
-  client_name: prismic.KeyTextField;
-
-  /**
-   * Client Logo field in *Recap*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recap.client_logo
-   * - **Tab**: Hero
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  client_logo: prismic.ImageField<never> /**
+  contact: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "contact";
+        fields: ["image", "name", "position", "email", "calendar"];
+      },
+    ]
+  > /**
    * Context Title field in *Recap*
    *
    * - **Field Type**: Text
@@ -966,6 +1055,56 @@ interface RecapDocumentData {
    */
   generated_page: prismic.GroupField<
     Simplify<RecapDocumentDataGeneratedPageItem>
+  > /**
+   * Next Eyebrow field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.next_eyebrow
+   * - **Tab**: Next Steps
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  next_eyebrow: prismic.KeyTextField;
+
+  /**
+   * Next Title field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.next_title
+   * - **Tab**: Next Steps
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  next_title: prismic.KeyTextField;
+
+  /**
+   * Next Text field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.next_text
+   * - **Tab**: Next Steps
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  next_text: prismic.KeyTextField;
+
+  /**
+   * Buttons field in *Recap*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.buttons
+   * - **Tab**: Next Steps
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  buttons: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Filled" | "Outlined"
+    >
   >;
 }
 
@@ -986,6 +1125,7 @@ export type AllDocumentTypes =
   | ArticleDocument
   | AuthorDocument
   | CategoryDocument
+  | ContactDocument
   | FooterDocument
   | HeaderDocument
   | HomeDocument
@@ -2691,6 +2831,8 @@ declare module "@prismicio/client" {
       AuthorDocumentData,
       CategoryDocument,
       CategoryDocumentData,
+      ContactDocument,
+      ContactDocumentData,
       FooterDocument,
       FooterDocumentData,
       HeaderDocument,

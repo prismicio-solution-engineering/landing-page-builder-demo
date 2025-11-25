@@ -55,6 +55,14 @@
       }
     },
     "Hero": {
+      "client_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Client Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "hero_eyebrow": {
         "type": "Text",
         "config": {
@@ -78,19 +86,18 @@
           "multi": "paragraph,em,strong"
         }
       },
-      "client_name": {
-        "type": "Text",
+      "contact": {
+        "type": "Link",
         "config": {
-          "label": "Client Name",
-          "placeholder": ""
-        }
-      },
-      "client_logo": {
-        "type": "Image",
-        "config": {
-          "label": "Client Logo",
-          "constraint": {},
-          "thumbnails": []
+          "label": "Contact",
+          "select": "document",
+          "repeat": false,
+          "customtypes": [
+            {
+              "id": "contact",
+              "fields": ["image", "name", "position", "email", "calendar"]
+            }
+          ]
         }
       }
     },
@@ -248,6 +255,40 @@
         }
       }
     },
-    "Next Steps": {}
+    "Next Steps": {
+      "next_eyebrow": {
+        "type": "Text",
+        "config": {
+          "label": "Next Eyebrow",
+          "placeholder": ""
+        }
+      },
+      "next_title": {
+        "type": "Text",
+        "config": {
+          "label": "Next Title",
+          "placeholder": ""
+        }
+      },
+      "next_text": {
+        "type": "Text",
+        "config": {
+          "label": "Next Text",
+          "placeholder": ""
+        }
+      },
+      "buttons": {
+        "type": "Link",
+        "config": {
+          "label": "Buttons",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true,
+          "variants": ["Filled", "Outlined"]
+        }
+      }
+    }
   }
 }
