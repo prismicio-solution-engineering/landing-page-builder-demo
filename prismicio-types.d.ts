@@ -651,6 +651,336 @@ export type LandingDocument<Lang extends string = string> =
     Lang
   >;
 
+type RecapDocumentDataSlicesSlice = never;
+
+/**
+ * Item in *Recap → Opportunity*
+ */
+export interface RecapDocumentDataOpportunityItem {
+  /**
+   * Icon field in *Recap → Opportunity*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.opportunity[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<"zoom" | "reuse" | "hammer">;
+
+  /**
+   * Title field in *Recap → Opportunity*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.opportunity[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *Recap → Opportunity*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.opportunity[].text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Item in *Recap → Generated Page*
+ */
+export interface RecapDocumentDataGeneratedPageItem {
+  /**
+   * Company Name field in *Recap → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.generated_page[].company_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  company_name: prismic.KeyTextField;
+
+  /**
+   * First name field in *Recap → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.generated_page[].first_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  first_name: prismic.KeyTextField;
+
+  /**
+   * Last Name field in *Recap → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.generated_page[].last_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  last_name: prismic.KeyTextField;
+
+  /**
+   * Role field in *Recap → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.generated_page[].role
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * Challenges field in *Recap → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.generated_page[].challenges
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  challenges: prismic.KeyTextField;
+
+  /**
+   * Pain Point field in *Recap → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.generated_page[].pain_point
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  pain_point: prismic.KeyTextField;
+
+  /**
+   * Industry Information field in *Recap → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.generated_page[].industry_information
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  industry_information: prismic.KeyTextField;
+
+  /**
+   * Key Message field in *Recap → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.generated_page[].key_message
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  key_message: prismic.KeyTextField;
+
+  /**
+   * Page field in *Recap → Generated Page*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.generated_page[].page
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  page: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Content for Recap documents
+ */
+interface RecapDocumentData {
+  /**
+   * Title field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Recap*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<RecapDocumentDataSlicesSlice> /**
+   * Meta Title field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: recap.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: recap.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Recap*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never> /**
+   * Hero Eyebrow field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.hero_eyebrow
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  hero_eyebrow: prismic.KeyTextField;
+
+  /**
+   * Hero Title field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.hero_title
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  hero_title: prismic.KeyTextField;
+
+  /**
+   * Hero Text field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.hero_text
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  hero_text: prismic.RichTextField;
+
+  /**
+   * Client Name field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.client_name
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  client_name: prismic.KeyTextField;
+
+  /**
+   * Client Logo field in *Recap*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.client_logo
+   * - **Tab**: Hero
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  client_logo: prismic.ImageField<never> /**
+   * Context Title field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.context_title
+   * - **Tab**: Context
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  context_title: prismic.KeyTextField;
+
+  /**
+   * Context Text field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.context_text
+   * - **Tab**: Context
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  context_text: prismic.RichTextField /**
+   * Opportunities Title field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.opportunities_title
+   * - **Tab**: Opportunities
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  opportunities_title: prismic.KeyTextField;
+
+  /**
+   * Opportunity field in *Recap*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.opportunity[]
+   * - **Tab**: Opportunities
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  opportunity: prismic.GroupField<
+    Simplify<RecapDocumentDataOpportunityItem>
+  > /**
+   * Data Title field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.data_title
+   * - **Tab**: Data
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  data_title: prismic.KeyTextField;
+
+  /**
+   * Data Text field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.data_text
+   * - **Tab**: Data
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  data_text: prismic.RichTextField;
+
+  /**
+   * Generated Page field in *Recap*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.generated_page[]
+   * - **Tab**: Data
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  generated_page: prismic.GroupField<
+    Simplify<RecapDocumentDataGeneratedPageItem>
+  >;
+}
+
+/**
+ * Recap document from Prismic
+ *
+ * - **API ID**: `recap`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RecapDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<RecapDocumentData>, "recap", Lang>;
+
 export type AllDocumentTypes =
   | _404Document
   | ArticleDocument
@@ -659,7 +989,8 @@ export type AllDocumentTypes =
   | FooterDocument
   | HeaderDocument
   | HomeDocument
-  | LandingDocument;
+  | LandingDocument
+  | RecapDocument;
 
 /**
  * Item in *Carousel → Default → Primary → Grp*
@@ -2370,6 +2701,11 @@ declare module "@prismicio/client" {
       LandingDocument,
       LandingDocumentData,
       LandingDocumentDataSlicesSlice,
+      RecapDocument,
+      RecapDocumentData,
+      RecapDocumentDataSlicesSlice,
+      RecapDocumentDataOpportunityItem,
+      RecapDocumentDataGeneratedPageItem,
       AllDocumentTypes,
       CarouselSlice,
       CarouselSliceDefaultPrimaryGrpItem,
