@@ -752,12 +752,12 @@ export interface RecapDocumentDataOpportunityItem {
   /**
    * Title field in *Recap → Opportunity*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: recap.opportunity[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  title: prismic.KeyTextField;
+  title: prismic.RichTextField;
 
   /**
    * Text field in *Recap → Opportunity*
@@ -945,13 +945,13 @@ interface RecapDocumentData {
   /**
    * Hero Title field in *Recap*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: recap.hero_title
    * - **Tab**: Hero
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  hero_title: prismic.KeyTextField;
+  hero_title: prismic.RichTextField;
 
   /**
    * Hero Text field in *Recap*
@@ -983,13 +983,13 @@ interface RecapDocumentData {
   > /**
    * Context Title field in *Recap*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: recap.context_title
    * - **Tab**: Context
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */;
-  context_title: prismic.KeyTextField;
+  context_title: prismic.RichTextField;
 
   /**
    * Context Text field in *Recap*
@@ -1003,13 +1003,13 @@ interface RecapDocumentData {
   context_text: prismic.RichTextField /**
    * Opportunities Title field in *Recap*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: recap.opportunities_title
    * - **Tab**: Opportunities
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */;
-  opportunities_title: prismic.KeyTextField;
+  opportunities_title: prismic.RichTextField;
 
   /**
    * Opportunity field in *Recap*
@@ -1025,13 +1025,13 @@ interface RecapDocumentData {
   > /**
    * Data Title field in *Recap*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: recap.data_title
    * - **Tab**: Data
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */;
-  data_title: prismic.KeyTextField;
+  data_title: prismic.RichTextField;
 
   /**
    * Data Text field in *Recap*
@@ -1069,24 +1069,24 @@ interface RecapDocumentData {
   /**
    * Next Title field in *Recap*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: recap.next_title
    * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  next_title: prismic.KeyTextField;
+  next_title: prismic.RichTextField;
 
   /**
    * Next Text field in *Recap*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: recap.next_text
    * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  next_text: prismic.KeyTextField;
+  next_text: prismic.RichTextField;
 
   /**
    * Buttons field in *Recap*
