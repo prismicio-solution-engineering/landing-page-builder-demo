@@ -22,6 +22,10 @@ const routes: prismic.ClientConfig["routes"] = [
   {
     type: "landing",
     path: "/:lang?/:uid"
+  },
+  {
+    type: "recap",
+    path: "/:lang?/recommandations/:uid"
   }
 ];
 
