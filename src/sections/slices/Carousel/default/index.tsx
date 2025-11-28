@@ -6,7 +6,10 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Container from "@/components/Container";
 import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 import { ArticleDocument, LandingDocumentData } from "@/prismicio-types";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import Link from "next/link";
+import { getIconColor, getLightIconColor } from "@/utils/getColors";
+import { getButtonStyles } from "@/utils/getButtonStyles";
 
 /**
  * Props for `Carousel`.
@@ -53,7 +56,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
   };
 
   if (slice.variation !== "default") return null;
-
+  console.log(slice)
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -102,12 +105,14 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
               }}
             />
           </div>
-          <div className="hover:bg-gray-900 px-4 py-2 border border-gray-900 hover:text-white transition-all duration-200 ease-inout1 cursor-pointer">
+          <div className="px-4 py-2 hover:opacity-90 text-white  transition-all duration-200 ease-inout1 cursor-pointer"
+            style={getButtonStyles("Primary", pageData)}
+          >
             <span>{slice.primary.btn_txt}</span>
           </div>
         </div>
         <div
-          className="flex gap-4 transition-transform duration-500 ease-inout2"
+          className="flex gap-4 justify-center transition-transform duration-500 ease-inout2"
           style={{
             transform: `translateX(-${currentIndex * (350 + 16)}px)`
           }}
@@ -120,63 +125,59 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
             return (
               <div
                 key={index}
-                className="flex flex-col gap-5 p-4 border border-gray-900 sm:w-[350px] cursor-pointer"
+                className="flex flex-col rounded-xl shadow-[4px_4px_24px_0px_rgba(175,_175,_175,_0.25)] overflow-hidden sm:w-[350px]"
               >
-                <div className="w-full sm:w-[300px] sm:h-[200px]">
+                <div className="w-full rounded-t-xl">
                   {data?.img && (
                     <PrismicNextImage
                       field={data.img}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full aspect-video object-cover"
                     />
                   )}
                 </div>
-                <div className="flex flex-col gap-2 mt-2">
-                  <span
-                    className="font-bold text-md"
-                    style={{ color: pageData?.primary_color || "#000000" }}
-                  >
-                    {data?.category?.data?.name}
-                  </span>
+                <div className="flex flex-col gap-2 p-4">
+                  <div className="flex justify-between">
+                    <span
+                      className="text-sm"
+                      style={{ color: pageData?.primary_color || "#000000" }}
+                    >
+                      {data?.category?.data?.name}
+                    </span>
+                    <span
+                      className="text-sm"
+                    >
+                      {formatDate(data?.date)}
+                    </span>
+                  </div>
                   <h4
-                    className="font-bold text-2xl"
+                    className="font-bold text-3xl"
                     style={getFontHeadingStyles(pageData)}
                   >
                     {data?.title[0].text}
                   </h4>
-                  <div className="max-h-[100px] overflow-hidden text-ellipsis line-clamp-3">
+                  <div className="text-sm max-h-[100px] overflow-hidden text-ellipsis line-clamp-3">
                     <PrismicRichText field={data?.desc} />
                   </div>
-                </div>
-                <div className="flex gap-5">
-                  <div className="w-10 h-10">
-                    <PrismicNextImage
-                      field={data?.author?.data.img}
-                      className="rounded-full w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="font-bold">{data?.author?.data.name}</span>
-                    <div className="flex gap-2">
-                      <span>{formatDate(data?.date)}</span>
-                      <span>•</span>
-                      <span>
-                        {data?.read_time} {data?.read_time_txt}
-                      </span>
-                    </div>
-                  </div>
+                  <Link
+                    href={"#"}
+                    className="mt-2 text-sm hover:underline"
+                    style={{ color: pageData?.primary_color || "#000000" }}
+                  >
+                    Read more →
+                  </Link>
                 </div>
               </div>
             );
           })}
         </div>
         {/* Nav carousel */}
-        <div className="flex justify-between items-center">
+        <div className="px-4 flex justify-between items-center">
+          <div></div>
           <div className="flex gap-2">
             {[...Array(slice.primary.grp.length)]?.map((_, i) => (
               <div
-                className={`rounded-full w-2 h-2 cursor-pointer ${
-                  i === currentIndex ? "bg-gray-900" : "bg-gray-500"
-                }`}
+                className={`rounded-full w-2 h-2 cursor-pointer`}
+                style={i === currentIndex ? getIconColor(pageData) : getLightIconColor(pageData)}
                 key={i}
                 onClick={() => setCurrentIndex(i)}
               />
