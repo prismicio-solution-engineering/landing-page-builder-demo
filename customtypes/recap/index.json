@@ -44,10 +44,12 @@
         }
       },
       "hero_title": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
           "label": "Hero Title",
-          "placeholder": ""
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading1"
         }
       },
       "hero_text": {
@@ -56,7 +58,7 @@
           "label": "Hero Text",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "paragraph,em,strong"
+          "multi": "paragraph,strong,em"
         }
       },
       "contact": {
@@ -76,10 +78,12 @@
     },
     "Context": {
       "context_title": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
           "label": "Context Title",
-          "placeholder": ""
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
         }
       },
       "context_text": {
@@ -94,10 +98,12 @@
     },
     "Opportunities": {
       "opportunities_title": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
           "label": "Opportunities Title",
-          "placeholder": ""
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
         }
       },
       "opportunity": {
@@ -115,10 +121,12 @@
               }
             },
             "title": {
-              "type": "Text",
+              "type": "StructuredText",
               "config": {
                 "label": "Title",
-                "placeholder": ""
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "heading3"
               }
             },
             "text": {
@@ -127,7 +135,7 @@
                 "label": "Text",
                 "placeholder": "",
                 "allowTargetBlank": true,
-                "multi": "paragraph,em,strong"
+                "multi": "paragraph,strong,em"
               }
             }
           }
@@ -136,10 +144,12 @@
     },
     "Data": {
       "data_title": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
           "label": "Data Title",
-          "placeholder": ""
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
         }
       },
       "data_text": {
@@ -237,17 +247,21 @@
         }
       },
       "next_title": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
           "label": "Next Title",
-          "placeholder": ""
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
         }
       },
       "next_text": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
           "label": "Next Text",
-          "placeholder": ""
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,em,strong"
         }
       },
       "buttons": {
