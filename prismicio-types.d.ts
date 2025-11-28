@@ -1975,6 +1975,17 @@ export interface MediaFeatureSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Image side field in *Feature → default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: media_feature.default.primary.image_side
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  image_side: prismic.BooleanField;
 }
 
 /**
@@ -1991,87 +2002,9 @@ export type MediaFeatureSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Feature → Variation 1 → Primary*
- */
-export interface MediaFeatureSliceVariation1Primary {
-  /**
-   * Tagline field in *Feature → Variation 1 → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: media_feature.variation1.primary.tagline
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  tagline: prismic.KeyTextField;
-
-  /**
-   * Title field in *Feature → Variation 1 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: media_feature.variation1.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Feature → Variation 1 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: media_feature.variation1.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Buttons field in *Feature → Variation 1 → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: media_feature.variation1.primary.buttons
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  buttons: prismic.Repeatable<
-    prismic.LinkField<
-      string,
-      string,
-      unknown,
-      prismic.FieldState,
-      "Primary" | "Secondary"
-    >
-  >;
-
-  /**
-   * Image field in *Feature → Variation 1 → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: media_feature.variation1.primary.image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * Variation 1 variation for Feature Slice
- *
- * - **API ID**: `variation1`
- * - **Description**: Layout with the media (image or video) on the right and textual content (tagline, heading, description, and actions) on the left.
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type MediaFeatureSliceVariation1 = prismic.SharedSliceVariation<
-  "variation1",
-  Simplify<MediaFeatureSliceVariation1Primary>,
-  never
->;
-
-/**
  * Slice variation for *Feature*
  */
-type MediaFeatureSliceVariation =
-  | MediaFeatureSliceDefault
-  | MediaFeatureSliceVariation1;
+type MediaFeatureSliceVariation = MediaFeatureSliceDefault;
 
 /**
  * Feature Shared Slice
@@ -2881,10 +2814,8 @@ declare module "@prismicio/client" {
       FaqSliceVariation2,
       MediaFeatureSlice,
       MediaFeatureSliceDefaultPrimary,
-      MediaFeatureSliceVariation1Primary,
       MediaFeatureSliceVariation,
       MediaFeatureSliceDefault,
-      MediaFeatureSliceVariation1,
       TestimonialsSlice,
       TestimonialsSliceDefaultPrimaryGrpItem,
       TestimonialsSliceDefaultPrimary,
