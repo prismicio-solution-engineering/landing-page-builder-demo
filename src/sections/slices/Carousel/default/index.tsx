@@ -56,7 +56,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
   };
 
   if (slice.variation !== "default") return null;
-  console.log(slice)
+
   return (
     <section
       data-slice-type={slice.slice_type}
