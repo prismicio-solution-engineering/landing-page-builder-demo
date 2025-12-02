@@ -7,6 +7,7 @@ import Container from "@/components/Container";
 import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 import { LandingDocumentData } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
+import { getIconColor, getLightIconColor } from "@/utils/getColors";
 
 /**
  * Props for `Carousel`.
@@ -103,9 +104,9 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
           <div className="flex gap-2">
             {[...Array(slice.primary.grp.length)]?.map((_, i) => (
               <div
-                className={`rounded-full cursor-pointer w-2 h-2 ${
-                  i === currentIndex ? "bg-gray-900" : "bg-gray-500"
-                }`}
+                className={`rounded-full cursor-pointer w-2 h-2`}
+                style={i === currentIndex ? getIconColor(pageData) : getLightIconColor(pageData)}
+                
                 key={i}
                 onClick={() => setCurrentIndex(i)}
               />
