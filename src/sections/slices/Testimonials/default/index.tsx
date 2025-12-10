@@ -46,7 +46,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
     return Array.from({ length: 5 }, (_, index) => (
       <svg
         key={index}
-        fill={index < rating ? `${pageData.primary_color ? pageData.primary_color : "#797979"}` : "#D9D9D9"}
+        fill={index < rating ? `${pageData?.primary_color ? pageData?.primary_color : "#797979"}` : "#D9D9D9"}
         height="20px"
         width="20px"
         viewBox="0 0 329.942 329.942"
