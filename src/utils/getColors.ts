@@ -23,8 +23,8 @@ export const getBackgroundColor = (pageData: LandingDocumentData): object => {
     let color
     let alpha = 1
 
-    if(pageData.primary_color) {
-        color = pageData.primary_color;
+    if(pageData?.primary_color) {
+        color = pageData?.primary_color;
     } else {
         color = "#797979";
     }
@@ -43,8 +43,8 @@ export const getLightBackgroundColor = (pageData: LandingDocumentData): object =
     let color
     let alpha
 
-    if(pageData.primary_color) {
-        color = pageData.primary_color;
+    if(pageData?.primary_color) {
+        color = pageData?.primary_color;
         alpha = 0.1;
     } else {
         color = "#F2F1F1";
@@ -65,8 +65,8 @@ export const getIconColor = (pageData: LandingDocumentData): object => {
     let color
     let alpha = 1
 
-    if(pageData.primary_color) {
-        color = pageData.primary_color;
+    if(pageData?.primary_color) {
+        color = pageData?.primary_color;
     } else {
         color = "#797979";
     }
@@ -85,8 +85,8 @@ export const getLightIconColor = (pageData: LandingDocumentData): object => {
     let color
     let alpha
 
-    if(pageData.primary_color) {
-        color = pageData.primary_color;
+    if(pageData?.primary_color) {
+        color = pageData?.primary_color;
         alpha = 0.5;
     } else {
         color = "#D9D9D9";
