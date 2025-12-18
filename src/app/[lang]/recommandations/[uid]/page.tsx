@@ -5,11 +5,12 @@ import { createClient } from "@/prismicio";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { isFilled } from "@prismicio/client";
-
 import Container from "@/components/Container";
+// icons
 import Zoom from "@/components/Icons/Zoom";
 import Reuse from "@/components/Icons/Reuse";
 import Hammer from "@/components/Icons/Hammer";
+// animations
 import { Try } from "./Try";
 import { Animation } from "./Animation";
 import { TopAnimation } from "./TopAnimation";
@@ -94,7 +95,7 @@ export default async function Home({
                     className="object-cover aspect-square rounded-full" 
                   />
                 )}
-                <div className="flex flex-col justify-center items-start">
+                <div className="flex flex-col justify-center items-center md:items-start">
                   {isFilled.contentRelationship(data.contact) && (
                     <p className="font-semibold">{data.contact.data?.name}</p>
                   )}
@@ -205,77 +206,75 @@ export default async function Home({
           <BottomAnimation></BottomAnimation>
         </div>
         <div className="relative">
+          <Container size="xl" className="flex flex-col items-center text-center gap-16">
+            <div className="flex flex-col items-center text-center gap-6 max-w-[700px]">
 
-        <Container size="xl" className="flex flex-col items-center text-center gap-16">
-           <div className="flex flex-col items-center text-center gap-6 max-w-[700px]">
+              {isFilled.richText(data.data_title) && (
+                <PrismicRichText 
+                  field={data.data_title}
+                  components={{
+                    heading2: ({ children }) => (
+                      <h2 className="text-4xl font-bold text-[#FFFFFF]">{children}</h2>
+                    ),
+                  }}
+                />
+              )}
 
-            {isFilled.richText(data.data_title) && (
-              <PrismicRichText 
-                field={data.data_title}
-                components={{
-                  heading2: ({ children }) => (
-                    <h2 className="text-4xl font-bold text-[#FFFFFF]">{children}</h2>
-                  ),
-                }}
-              />
-            )}
-
-            {isFilled.richText(data.data_text) && (
-              <PrismicRichText 
-                field={data.data_text} 
-                components={{
-                  paragraph: ({ children }) => <p className="text-[#A4A4A4]">{children}</p>,
-                }}
-              />
-            )}
-          </div>
-
-            <div className="border border-solid border-[#ffffff32] rounded-2xl overflow-hidden">
-              <table className="text-white font-light text-left">
-                <thead>
-                  <tr>
-                    <th className="p-4 border border-[#ffffff32] rounded-tl-2xl align-top text-left">Company</th>
-                    <th className="p-4 border border-[#ffffff32] align-top text-left">Role</th>
-                    <th className="p-4 border border-[#ffffff32] align-top text-left">Challenges</th>
-                    <th className="p-4 border border-[#ffffff32] align-top text-left">Pain Point</th>
-                    <th className="p-4 border border-[#ffffff32] align-top text-left">Industry Information</th>
-                    <th className="p-4 border border-[#ffffff32] align-top text-left">Key Message</th>
-                    <th className="p-4 border border-[#ffffff32] rounded-tr-2xl align-top text-left">Page</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    {data.generated_page.map((item, index) => (
-                      <tr key={index}>
-                        <th className="p-4 border border-[#ffffff32] align-top text-left">{item.company_name}</th>
-                        <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">{item.role}</td>
-                        <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">{item.challenges}</td>
-                        <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">{item.pain_point}</td>
-                        <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">{item.industry_information}</td>
-                        <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">{item.key_message}</td>
-                        <td className="p-4 border border-[#ffffff32] text-sm align-center text-left">
-                          {isFilled.keyText(item.page_link) && (
-                            <a 
-                              href={item.page_link} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="text-[#FFFFFF] px-4 py-2 rounded-lg border-2 border-[#8E44EC]"
-                            >
-                              Open
-                            </a>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
+              {isFilled.richText(data.data_text) && (
+                <PrismicRichText 
+                  field={data.data_text} 
+                  components={{
+                    paragraph: ({ children }) => <p className="text-[#A4A4A4]">{children}</p>,
+                  }}
+                />
+              )}
             </div>
-        </Container>
+              <div className="w-full border border-solid border-[#ffffff32] rounded-2xl overflow-x-auto">
+                <table className="min-w-[1000px] text-white font-light text-left">
+                  <thead>
+                    <tr>
+                      <th className="p-4 border border-[#ffffff32] rounded-tl-2xl align-top text-left">Company</th>
+                      <th className="p-4 border border-[#ffffff32] align-top text-left">Role</th>
+                      <th className="p-4 border border-[#ffffff32] align-top text-left">Challenges</th>
+                      <th className="p-4 border border-[#ffffff32] align-top text-left">Pain Point</th>
+                      <th className="p-4 border border-[#ffffff32] align-top text-left">Industry Information</th>
+                      <th className="p-4 border border-[#ffffff32] align-top text-left">Key Message</th>
+                      <th className="p-4 border border-[#ffffff32] rounded-tr-2xl align-top text-left">Page</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {data.generated_page.map((item, index) => (
+                        <tr key={index}>
+                          <th className="p-4 border border-[#ffffff32] align-top text-left">{item.company_name}</th>
+                          <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">{item.role}</td>
+                          <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">{item.challenges}</td>
+                          <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">{item.pain_point}</td>
+                          <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">{item.industry_information}</td>
+                          <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">{item.key_message}</td>
+                          <td className="p-4 border border-[#ffffff32] text-sm align-center text-left">
+                            {isFilled.keyText(item.page_link) && (
+                              <a 
+                                href={item.page_link} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="text-[#FFFFFF] px-4 py-2 rounded-lg border-2 border-[#8E44EC]"
+                              >
+                                Open
+                              </a>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+          </Container>
         </div>
       </section>
         
 
       {/* Next steps */}
-      <section className="bg-[#FFFFFF] pb-[60px]">
+      <section id="next-steps"  className="bg-[#FFFFFF] pb-[60px]">
         <Container size="xl" className="flex flex-col items-center gap-16 text-center">
           <div className="w-full max-w-[700px] flex flex-col items-center gap-6">
             <div className="flex flex-col items-center gap-4">
