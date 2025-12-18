@@ -855,14 +855,14 @@ export interface RecapDocumentDataGeneratedPageItem {
   key_message: prismic.KeyTextField;
 
   /**
-   * Page field in *Recap → Generated Page*
+   * Page link field in *Recap → Generated Page*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: recap.generated_page[].page
-   * - **Documentation**: https://prismic.io/docs/fields/link
+   * - **API ID Path**: recap.generated_page[].page_link
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  page: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+  page_link: prismic.KeyTextField;
 }
 
 /**
@@ -890,37 +890,6 @@ interface RecapDocumentData {
    * - **Documentation**: https://prismic.io/docs/slices
    */
   slices: prismic.SliceZone<RecapDocumentDataSlicesSlice> /**
-   * Meta Title field in *Recap*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: recap.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *Recap*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: recap.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Recap*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recap.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  meta_image: prismic.ImageField<never> /**
    * Client Logo field in *Recap*
    *
    * - **Field Type**: Image
@@ -1105,7 +1074,38 @@ interface RecapDocumentData {
       prismic.FieldState,
       "Filled" | "Outlined"
     >
-  >;
+  > /**
+   * Meta Title field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: recap.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Recap*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: recap.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Recap*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
