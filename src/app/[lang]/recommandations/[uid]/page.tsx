@@ -11,7 +11,6 @@ import Zoom from "@/components/Icons/Zoom";
 import Reuse from "@/components/Icons/Reuse";
 import Hammer from "@/components/Icons/Hammer";
 // animations
-import { Try } from "./Try";
 import { Animation } from "./Animation";
 import { TopAnimation } from "./TopAnimation";
 import { BottomAnimation } from "./BottomAnimation";
